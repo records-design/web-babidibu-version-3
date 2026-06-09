@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:bungee.framer.website)",
+      "Bash(open \"/Users/onceloopsdiseno/Desktop/web babidibu version 3/index.html\")"
+    ]
+  }
+}
