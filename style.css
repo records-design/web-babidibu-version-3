@@ -753,7 +753,9 @@ body.menu-open .menu-overlay::before {
   width: clamp(180px, 30vw, 360px);
   height: auto;
   display: block;
+  margin: -160px 0 -140px 0 !important;
 }
+
 
 .tv-desc {
   font-family: var(--ff-body);
