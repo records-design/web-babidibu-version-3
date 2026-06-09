@@ -12,20 +12,61 @@
 </head>
 <body>
 
-  <!-- HEADER — flotante, logo izq + nav der -->
+  <!-- HEADER — logo izq + botón "+" der -->
   <header class="header" id="header">
     <a href="#inicio" class="header-logo">
       <img src="imagenes-babidibu-records/logo-babidibu-final.png" alt="Babidibu Records">
     </a>
-    <nav class="header-nav" role="navigation">
-      <a href="#artistas">Artistas</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#tv">Babidibu TV</a>
-      <a href="#sobre">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#contacto" class="header-cta">Presentar proyecto</a>
-    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span class="menu-btn-char">+</span>
+    </button>
   </header>
+
+  <!-- MENÚ FULLSCREEN -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+
+    <nav class="menu-nav">
+      <ul class="menu-links">
+        <li class="menu-item">
+          <span class="menu-num">01</span>
+          <a href="#artistas" class="menu-link">Artistas</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">02</span>
+          <a href="#sobre" class="menu-link">Nosotros</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">03</span>
+          <a href="#servicios" class="menu-link">Servicios</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">04</span>
+          <a href="#" class="menu-link">Lanzamientos</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">05</span>
+          <a href="#tv" class="menu-link">Babidibu TV</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">06</span>
+          <a href="#contacto" class="menu-link">Contacto</a>
+        </li>
+        <li class="menu-item menu-item--cta">
+          <a href="#contacto" class="menu-link menu-link--cta">Presentar proyecto →</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="menu-bottom">
+      <p class="menu-copy">© 2025 Babidibu Records</p>
+      <div class="menu-social">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Spotify</a>
+      </div>
+    </div>
+
+  </div>
 
   <main>
 
@@ -272,58 +313,42 @@
 
     <!-- 03 BABIDIBU TV -->
     <section class="babidibu-tv" id="tv">
-      <div class="tv-inner">
-        <div class="tv-left reveal">
-          <span class="label-number light">03</span>
-          <img
-            class="tv-logo"
-            src="imagenes-babidibu-records/logo babidibutv.png"
-            alt="Babidibu TV"
-          >
-          <p class="tv-desc">
-            La plataforma de contenidos audiovisuales del universo Babidibu.
-            Historias, canciones y personajes que acompañan a los niños y las niñas
-            en cada pantalla.
-          </p>
-          <a href="#" class="btn-outline">Conocer más →</a>
-        </div>
-
-        <div class="tv-right reveal reveal-delay-2">
-          <div class="tv-phone">
-            <video autoplay muted loop playsinline>
-              <source src="imagenes-babidibu-records/video-hola-soy-chiquito-vertical.mp4.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="tv-phone tv-phone--back">
-            <video autoplay muted loop playsinline>
-              <source src="imagenes-babidibu-records/video-rincon-dani.mp4.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
+      <div class="tv-content">
+        <span class="label-number reveal">03</span>
+        <img
+          class="tv-logo reveal"
+          src="imagenes-babidibu-records/logo babidibutv.png"
+          alt="Babidibu TV"
+        >
+        <p class="tv-desc reveal">
+          La plataforma de contenidos audiovisuales del universo Babidibu.
+          Historias, canciones y personajes que acompañan a los niños y las niñas
+          en cada pantalla.
+        </p>
+        <a href="#" class="tv-cta reveal">Ver programación →</a>
       </div>
     </section>
 
-    <!-- 04 SERVICIOS — carrusel horizontal premium -->
+    <!-- 04 SERVICIOS DEL SELLO — accordion premium -->
     <section class="servicios-v2" id="servicios">
 
       <div class="servicios-v2-header reveal">
         <span class="label-number">04</span>
-        <div class="servicios-title-row">
-          <h2 class="servicios-v2-title">Servicios</h2>
-          <span class="servicios-hint">Deslizá →</span>
-        </div>
+        <h2 class="servicios-v2-title">Servicios del Sello</h2>
       </div>
 
-      <div class="servicios-track-wrap" id="serviciosTrack">
-        <div class="servicios-track">
+      <div class="accordion">
 
-          <div class="sc" style="--acc:#5FA55A">
-            <div class="sc-line"></div>
-            <div class="sc-body">
-              <span class="sc-num">01</span>
-              <h3 class="sc-title">Artistas &amp;<br>Songwriters</h3>
-              <p class="sc-desc">Desarrollamos artistas con propósito. Desde la identidad sonora hasta la narrativa de marca, construimos el universo que conecta con las infancias y sus familias.</p>
-              <ul class="sc-tags">
+        <div class="acc-item" style="--acc-color:#5FA55A">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">01</span>
+            <span class="acc-name">Artistas &amp; Songwriters</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Desarrollamos artistas con propósito. Desde la identidad sonora hasta la narrativa de marca, construimos el universo que conecta con las infancias y sus familias.</p>
+              <ul class="acc-tags">
                 <li>Desarrollo artístico</li>
                 <li>Composición</li>
                 <li>Representación</li>
@@ -331,14 +356,18 @@
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="sc" style="--acc:#01B4BC">
-            <div class="sc-line"></div>
-            <div class="sc-body">
-              <span class="sc-num">02</span>
-              <h3 class="sc-title">Publishing</h3>
-              <p class="sc-desc">Registramos, administramos y potenciamos el valor de tus canciones. Generamos oportunidades de sync, licensing y explotación del catálogo en múltiples territorios.</p>
-              <ul class="sc-tags">
+        <div class="acc-item" style="--acc-color:#01B4BC">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">02</span>
+            <span class="acc-name">Publishing</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Registramos, administramos y potenciamos el valor de tus canciones. Generamos oportunidades de sync, licensing y explotación del catálogo en múltiples territorios.</p>
+              <ul class="acc-tags">
                 <li>Derechos de autor</li>
                 <li>Editorial musical</li>
                 <li>Catálogo</li>
@@ -346,14 +375,18 @@
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="sc" style="--acc:#FA8925">
-            <div class="sc-line"></div>
-            <div class="sc-body">
-              <span class="sc-num">03</span>
-              <h3 class="sc-title">Shows &amp; Venue</h3>
-              <p class="sc-desc">Diseñamos y producimos shows en vivo, giras y experiencias presenciales que convierten la música en momentos reales entre el artista y su audiencia.</p>
-              <ul class="sc-tags">
+        <div class="acc-item" style="--acc-color:#FA8925">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">03</span>
+            <span class="acc-name">Shows &amp; Venue</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Diseñamos y producimos shows en vivo, giras y experiencias presenciales que convierten la música en momentos reales entre el artista y su audiencia.</p>
+              <ul class="acc-tags">
                 <li>Shows en vivo</li>
                 <li>Producción escénica</li>
                 <li>Giras</li>
@@ -361,28 +394,36 @@
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="sc" style="--acc:#FA5457">
-            <div class="sc-line"></div>
-            <div class="sc-body">
-              <span class="sc-num">04</span>
-              <h3 class="sc-title">Producción<br>Musical</h3>
-              <p class="sc-desc">Del concepto al master. Songwriting, arreglos, grabación, mix y mastering con dirección artística orientada al mercado del entretenimiento infantil global.</p>
-              <ul class="sc-tags">
+        <div class="acc-item" style="--acc-color:#FA5457">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">04</span>
+            <span class="acc-name">Producción Musical</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Del concepto al master. Songwriting, arreglos, grabación, mix y mastering con dirección artística orientada al mercado del entretenimiento infantil global.</p>
+              <ul class="acc-tags">
                 <li>Songwriting</li>
                 <li>Mix &amp; Master</li>
                 <li>Dirección artística</li>
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="sc" style="--acc:#c8a800">
-            <div class="sc-line"></div>
-            <div class="sc-body">
-              <span class="sc-num">05</span>
-              <h3 class="sc-title">Proyectos<br>Audiovisuales</h3>
-              <p class="sc-desc">Videoclips, series y contenido original para plataformas de streaming y redes sociales. Del concepto a la pantalla, producción diseñada para las infancias del siglo XXI.</p>
-              <ul class="sc-tags">
+        <div class="acc-item" style="--acc-color:#c8a800">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">05</span>
+            <span class="acc-name">Proyectos Audiovisuales</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Videoclips, series y contenido original para plataformas de streaming y redes sociales. Del concepto a la pantalla, producción diseñada para las infancias del siglo XXI.</p>
+              <ul class="acc-tags">
                 <li>Videoclips</li>
                 <li>Series Verticales</li>
                 <li>Streaming</li>
@@ -390,48 +431,54 @@
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="sc" style="--acc:#5FA55A">
-            <div class="sc-line"></div>
-            <div class="sc-body">
-              <span class="sc-num">06</span>
-              <h3 class="sc-title">Marketing<br>Digital</h3>
-              <p class="sc-desc">Llevamos tu música a las plataformas principales y diseñamos la estrategia digital para que tu proyecto crezca, se posicione y construya audiencia real y sostenible.</p>
-              <ul class="sc-tags">
+        <div class="acc-item" style="--acc-color:#5FA55A">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">06</span>
+            <span class="acc-name">Marketing Digital</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Llevamos tu música a las plataformas principales y diseñamos la estrategia digital para que tu proyecto crezca, se posicione y construya audiencia real y sostenible.</p>
+              <ul class="acc-tags">
                 <li>Distribución digital</li>
                 <li>Estrategia de contenidos</li>
                 <li>Audiencia</li>
               </ul>
             </div>
           </div>
-
         </div>
-      </div>
 
-      <div class="servicios-progress">
-        <div class="servicios-progress-bar" id="serviciosBar"></div>
       </div>
 
     </section>
 
-    <!-- 05 SOBRE BABIDIBU -->
+    <!-- 05 NOSOTROS -->
     <section class="sobre" id="sobre">
       <div class="sobre-inner">
-        <span class="label-number light reveal">05</span>
-        <blockquote class="sobre-quote reveal">
-          Creemos que la cultura de la infancia merece la misma ambición creativa que cualquier otra.
-        </blockquote>
-        <div class="sobre-body reveal">
-          <p>
-            Babidibu Records es un sello creativo que nació con una convicción: los niños y las niñas
-            merecen contenido que los sorprenda, que los emocione, que los acompañe.
-            Trabajamos con artistas, personajes y proyectos que tienen algo genuino que decir.
-          </p>
-          <p>
-            No seguimos fórmulas.<br>
-            Construimos universos.
-          </p>
-        </div>
+
+        <!-- Etiqueta -->
+        <p class="sobre-label reveal">( Nosotros )</p>
+
+        <!-- Título gigante centrado -->
+        <h2 class="sobre-title reveal">
+          Impulsamos el entretenimiento<br>
+          infantil desde una visión <span class="sobre-accent">360°</span>
+        </h2>
+
+        <!-- Subtítulo -->
+        <p class="sobre-sub reveal">
+          Babidibu Records es un sello creativo que nació con una convicción: los niños y las niñas merecen contenido que los sorprenda, que los emocione, que los acompañe. Trabajamos con artistas, personajes y proyectos que tienen algo genuino que decir.
+        </p>
+
+        <!-- Frase final -->
+        <p class="sobre-claim reveal">
+          No seguimos fórmulas.<br>
+          Construimos universos.
+        </p>
+
       </div>
     </section>
 
@@ -550,6 +597,38 @@
       header.classList.toggle('scrolled', window.scrollY > 80);
     }, { passive: true });
 
+    // ─── Menú fullscreen ──────────────────────────────────────────
+    const menuBtn     = document.getElementById('menuBtn');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      document.body.classList.add('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', () => {
+      document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+    });
+
+    // Cerrar al hacer click en un link del menú
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
+    });
+
     // ─── Scroll reveal ────────────────────────────────────────────
     const revealEls = document.querySelectorAll('.reveal');
     const revealObs = new IntersectionObserver((entries) => {
@@ -590,27 +669,31 @@
       }
     }, { passive: true });
 
-    // ─── Servicios: drag-to-scroll + barra de progreso ───────────
-    const track = document.getElementById('serviciosTrack');
-    const bar   = document.getElementById('serviciosBar');
+    // ─── Accordion de servicios ───────────────────────────────────
+    const accItems = document.querySelectorAll('.acc-item');
 
-    if (track && bar) {
-      track.addEventListener('scroll', () => {
-        const max = track.scrollWidth - track.clientWidth;
-        bar.style.width = `${20 + (track.scrollLeft / max) * 80}%`;
-      }, { passive: true });
+    accItems.forEach(item => {
+      const trigger = item.querySelector('.acc-trigger');
+      const body    = item.querySelector('.acc-body');
 
-      let dragging = false, startX, startScroll;
-      track.addEventListener('mousedown', e => {
-        dragging = true; startX = e.pageX; startScroll = track.scrollLeft;
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Cerrar todos
+        accItems.forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+          i.querySelector('.acc-body').setAttribute('aria-hidden', 'true');
+        });
+
+        // Abrir el clickeado (si estaba cerrado)
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          body.setAttribute('aria-hidden', 'false');
+        }
       });
-      window.addEventListener('mouseup', () => { dragging = false; });
-      track.addEventListener('mousemove', e => {
-        if (!dragging) return;
-        e.preventDefault();
-        track.scrollLeft = startScroll - (e.pageX - startX) * 1.4;
-      });
-    }
+    });
 
     // ─── Tag buttons (formulario) ─────────────────────────────────
     document.querySelectorAll('.tag-btn').forEach(btn => {
