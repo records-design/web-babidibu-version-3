@@ -47,7 +47,7 @@ ul { list-style: none; }
 .label-number {
   display: block;
   font-family: var(--ff-body);
-  font-size: 20px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -560,7 +560,7 @@ body.menu-open .menu-overlay::before {
    ════════════════════════════════════════════════════════════ */
 .artistas-v2 {
   background: #F2F2F0;
-  padding-bottom: 160px;
+  padding-bottom: 80px;
 }
 
 .artistas-v2-header {
@@ -728,7 +728,9 @@ body.menu-open .menu-overlay::before {
    ════════════════════════════════════════════════════════════ */
 .babidibu-tv {
   background: #F5F5F3;
-  padding: 40px 80px;
+  min-height: auto;
+  height: auto;
+  padding: 80px 0 100px;
   text-align: center;
 }
 
@@ -984,11 +986,10 @@ body.menu-open .menu-overlay::before {
 .sobre-title {
   font-family: 'Inter', sans-serif;
   font-size: clamp(38px, 6.2vw, 84px);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-weight: 200;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   color: #111;
-  text-transform: uppercase;
   text-align: center;
   margin-bottom: 56px;
 }
