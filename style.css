@@ -386,8 +386,8 @@ body.menu-open .menu-overlay::before {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 64px 0 0;
-  gap: 14px;
+  padding: 52px 0 0;
+  gap: 6px;
 }
 
 /* ── 1. Logo + badge ─────────────────────────────────────── */
@@ -443,7 +443,7 @@ body.menu-open .menu-overlay::before {
 */
 .hero-cpiece {
   flex-shrink: 0;
-  height: clamp(360px, 46vh, 520px);
+  height: clamp(500px, 64vh, 740px);
   aspect-ratio: 9 / 16;
   margin-right: 12px;
   border-radius: 16px;
@@ -463,16 +463,16 @@ body.menu-open .menu-overlay::before {
   position: relative;
   z-index: 2;
   /*
-    margin-top negativo sube el bloque ~60px
-    dentro del área del carrusel.
+    Con el carrusel más alto el overlap sube a -110px
+    para mantener la superposición editorial.
   */
-  margin-top: -60px;
+  margin-top: -110px;
   /*
-    Gradiente: transparente arriba (videos visibles),
-    blanco a los 22% (texto legible sobre fondo blanco).
+    Gradiente: zona transparente ampliada para mostrar
+    más del carrusel antes de llegar al blanco del título.
   */
-  background: linear-gradient(to bottom, transparent 0%, #fff 22%);
-  padding: 48px 0 52px;
+  background: linear-gradient(to bottom, transparent 0%, #fff 26%);
+  padding: 56px 0 52px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -897,8 +897,9 @@ body.menu-open .menu-overlay::before {
 .acc-item.open .acc-name { color: var(--acc-color); }
 .acc-item.open .acc-icon { color: var(--acc-color); transform: rotate(45deg); }
 
-/* Hover en ítems cerrados: preview del número */
-.acc-item:not(.open) .acc-trigger:hover .acc-num {
+/* Hover en ítems cerrados: número y nombre toman el color del servicio */
+.acc-item:not(.open) .acc-trigger:hover .acc-num,
+.acc-item:not(.open) .acc-trigger:hover .acc-name {
   color: var(--acc-color);
 }
 
@@ -1026,221 +1027,409 @@ body.menu-open .menu-overlay::before {
 }
 
 /* ════════════════════════════════════════════════════════════
-   06 FORMULARIO
+   06 PRESENTAR PROYECTO — compacto, dropdown, editorial
    ════════════════════════════════════════════════════════════ */
 .formulario {
-  background: var(--coral);
-  color: white;
-  padding: 130px 80px;
+  background: var(--blanco);
+  padding: 64px 80px 80px;
 }
 
-.formulario-inner { max-width: 960px; }
-
-.formulario-title {
-  font-family: var(--ff-display);
-  font-size: clamp(30px, 5vw, 60px);
-  font-weight: 500;
-  line-height: 1.1;
-  color: white;
-  margin: 18px 0 22px;
+.formulario-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.formulario-sub {
-  font-family: var(--ff-body);
-  font-size: 19px;
+/* ── Etiqueta ────────────────────────────────────────────── */
+.form-pres-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.72);
-  margin-bottom: 60px;
-  line-height: 1.65;
-  max-width: 680px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.32);
+  margin-bottom: 14px;
 }
 
-.formulario-form {
+/* ── Subtítulo ───────────────────────────────────────────── */
+.form-pres-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Dropdown ────────────────────────────────────────────── */
+.form-dropdown {
+  position: relative;
+  text-align: left;
+}
+
+.form-dropdown-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.38);
+  transition: border-color 0.22s ease, color 0.22s ease;
+  gap: 8px;
+}
+
+.form-dropdown-trigger:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.45);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.form-dropdown-trigger.has-value {
+  color: #111;
+  border-bottom-color: rgba(0, 0, 0, 0.45);
+}
+
+.form-dropdown-value { flex: 1; }
+
+.form-dropdown-arrow {
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.form-dropdown.open .form-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Menu — lista de opciones */
+.form-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 20;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-top: none;
+
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s var(--ease-out), opacity 0.22s ease;
+}
+
+.form-dropdown.open .form-dropdown-menu {
+  max-height: 380px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form-dropdown-item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 13px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.form-dropdown-item:last-child { border-bottom: none; }
+
+.form-dropdown-item:hover {
+  color: #111;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* ── Form body: colapsa/expande ──────────────────────────── */
+.form-pres-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  margin-top: 0;
+  text-align: left;
+  transition: grid-template-rows 0.4s var(--ease-out),
+              opacity 0.3s ease,
+              margin-top 0.35s ease;
+}
+
+.form-pres-body.active {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 40px;
+}
+
+.form-pres-body-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Campos ──────────────────────────────────────────────── */
+.form-pres-fields {
   display: flex;
   flex-direction: column;
-  gap: 36px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 28px;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .form-field label {
-  font-family: var(--ff-body);
-  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 0, 0, 0.38);
 }
 
 .form-field input,
 .form-field textarea {
   background: transparent;
   border: none;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
   padding: 10px 0;
-  font-family: var(--ff-body);
-  font-size: 18px;
-  font-weight: 400;
-  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #111;
   outline: none;
   width: 100%;
   resize: none;
   transition: border-color 0.22s ease;
 }
+
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(0, 0, 0, 0.22);
 }
+
 .form-field input:focus,
 .form-field textarea:focus {
-  border-bottom-color: white;
+  border-bottom-color: rgba(0, 0, 0, 0.55);
 }
 
-/* Tags de tipo de proyecto */
-.form-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding-top: 4px;
-}
-
-.tag-btn {
-  background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.65);
-  padding: 10px 18px;
-  border-radius: 100px;
-  font-family: var(--ff-body);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-.tag-btn:hover,
-.tag-btn.active {
-  background: white;
-  border-color: white;
-  color: var(--coral);
-}
-
-.btn-submit {
-  background: var(--amarillo);
+/* ── Expansión opcional ──────────────────────────────────── */
+.form-pres-expand {
+  background: none;
   border: none;
-  color: var(--negro);
-  padding: 20px 48px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+  transition: color 0.2s ease;
+}
+
+.form-pres-expand:hover { color: #111; }
+
+.form-pres-extra {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease-out);
+  overflow: hidden;
+}
+
+.form-pres-extra.expanded { grid-template-rows: 1fr; }
+
+.form-pres-extra-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 28px;
+}
+
+/* ── Botón envío ─────────────────────────────────────────── */
+.btn-submit {
+  background: var(--verde);
+  border: none;
+  color: #fff;
+  padding: 13px 32px;
   border-radius: 100px;
-  font-family: var(--ff-display);
-  font-size: 20px;
-  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   cursor: pointer;
   align-self: flex-start;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-.btn-submit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
-.formulario-trust {
-  font-family: var(--ff-body);
-  font-size: 14px;
+.btn-submit:hover {
+  opacity: 0.82;
+  transform: translateY(-2px);
+}
+
+/* ── Texto de confianza ──────────────────────────────────── */
+.form-pres-trust {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
   font-weight: 300;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.48);
-  margin-top: 28px;
-  max-width: 580px;
+  color: rgba(0, 0, 0, 0.32);
+  margin-top: 32px;
   line-height: 1.65;
 }
 
 /* ════════════════════════════════════════════════════════════
-   07 FOOTER
+   07 FOOTER — luminoso, cromático, Babidibu
    ════════════════════════════════════════════════════════════ */
 .footer {
-  background: var(--negro);
-  color: white;
-  padding: 80px 80px 44px;
+  position: relative;
+  overflow: hidden;
+  /*
+    Degradado amarillo→coral muy suave sobre blanco cálido.
+    Tono alegre, infantil y contemporáneo sin ser pesado.
+  */
+  background:
+    linear-gradient(160deg,
+      rgba(246, 213, 31, 0.07) 0%,
+      #FAFAF8 35%,
+      rgba(250, 84, 87, 0.05) 100%
+    );
+  padding: 0 80px 44px;
 }
 
+/* Banda de color superior — extensión de la identidad */
+.footer::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(to right, #5FA55A, #01B4BC, #F6D51F, #FA8925, #FA5457);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Notas musicales decorativas */
+.footer-notes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.footer-notes span {
+  position: absolute;
+  left: var(--nx);
+  top: var(--ny);
+  font-size: var(--ns);
+  color: var(--nc);
+  opacity: var(--no);
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── Logo ────────────────────────────────────────────────── */
 .footer-brand {
   text-align: center;
-  padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  margin-bottom: 60px;
+  padding: 56px 0 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 48px;
 }
+
 .footer-logo {
   width: 180px;
   height: auto;
   margin: 0 auto;
-  /* Si el logo es oscuro sobre fondo oscuro, descomentá esta línea: */
-  /* filter: brightness(0) invert(1); */
 }
 
+/* ── Grid ────────────────────────────────────────────────── */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 
+/* ── Headings ────────────────────────────────────────────── */
 .footer-col h4 {
   font-family: var(--ff-body);
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.35);
+  margin-bottom: 18px;
 }
+
+/* ── Links ───────────────────────────────────────────────── */
 .footer-col ul {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 11px;
 }
+
 .footer-col li,
 .footer-col a {
   font-family: var(--ff-body);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 0, 0, 0.55);
   cursor: pointer;
-  transition: color 0.2s ease;
+  text-decoration: none;
+  transition: color 0.22s ease;
 }
-.footer-col a:hover,
-.footer-col li:hover { color: white; }
 
+/* Hover por columna con color de paleta propio */
+.footer-col--artistas a:hover  { color: #5FA55A; }
+.footer-col--servicios li:hover { color: #01B4BC; }
+.footer-col--contacto  a:hover  { color: #FA5457; }
+
+/* ── Bottom ──────────────────────────────────────────────── */
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .footer-palette {
   display: flex;
-  gap: 8px;
+  gap: 7px;
   align-items: center;
 }
+
 .footer-palette span {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  opacity: 0.7;
 }
+
 .footer-bottom p {
   font-family: var(--ff-body);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(0, 0, 0, 0.32);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -1257,10 +1446,10 @@ body.menu-open .menu-overlay::before {
   .menu-bottom { left: 8vw; right: 8vw; bottom: 28px; }
 
   /* Hero */
-  .hero { padding: 58px 0 0; gap: 10px; }
+  .hero { padding: 52px 0 0; gap: 6px; }
   .hero-logo { width: min(220px, 68vw); }
-  .hero-cpiece { height: clamp(260px, 38vh, 380px); margin-right: 8px; border-radius: 12px; }
-  .hero-words { margin-top: -40px; padding: 36px 0 36px; gap: 16px; }
+  .hero-cpiece { height: clamp(340px, 52vh, 520px); margin-right: 8px; border-radius: 12px; }
+  .hero-words { margin-top: -70px; padding: 44px 0 36px; gap: 16px; }
   .hero-title { font-size: clamp(36px, 9vw, 72px); padding: 0 20px; }
   .hero-ticker { width: min(88vw, 640px); }
 
@@ -1287,11 +1476,13 @@ body.menu-open .menu-overlay::before {
   .sobre-label { margin-bottom: 36px; }
   .sobre-sub { margin-bottom: 32px; }
 
-  .formulario { padding: 100px 40px; }
-  .form-row { grid-template-columns: 1fr; }
+  .formulario { padding: 80px 28px 100px; }
+  .form-pres-question { font-size: clamp(24px, 7vw, 44px); margin-bottom: 36px; }
+  .form-cat { font-size: clamp(18px, 5.5vw, 34px); gap: 8px 20px; }
 
-  .footer { padding: 60px 40px 36px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer { padding: 0 32px 36px; }
+  .footer-brand { padding: 44px 0 36px; margin-bottom: 36px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
 
@@ -1303,7 +1494,6 @@ body.menu-open .menu-overlay::before {
 
   .sobre-quote { font-size: clamp(28px, 7vw, 48px); }
 
-  .formulario-title { font-size: clamp(26px, 7vw, 44px); }
 
   .servicio-nombre { font-size: clamp(24px, 6.5vw, 40px); }
 
