@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babidibu Records — El universo musical de la infancia</title>
+  <meta name="description" content="Babidibu Records es un sello creativo especializado en música infantil, personajes, artistas y contenido audiovisual.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER — logo izq + botón "+" der -->
+  <header class="header" id="header">
+    <a href="#inicio" class="header-logo">
+      <img src="imagenes-babidibu-records/SVG/logo svg.svg" alt="Babidibu Records">
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span class="menu-btn-char">+</span>
+    </button>
+  </header>
+
+  <!-- MENÚ FULLSCREEN -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+
+    <nav class="menu-nav">
+      <ul class="menu-links">
+        <li class="menu-item">
+          <span class="menu-num">01</span>
+          <a href="#artistas" class="menu-link">Artistas</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">02</span>
+          <a href="#sobre" class="menu-link">Nosotros</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">03</span>
+          <a href="#servicios" class="menu-link">Servicios</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">04</span>
+          <a href="#" class="menu-link">Lanzamientos</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">05</span>
+          <a href="#tv" class="menu-link">Babidibu TV</a>
+        </li>
+        <li class="menu-item">
+          <span class="menu-num">06</span>
+          <a href="#contacto" class="menu-link">Contacto</a>
+        </li>
+        <li class="menu-item menu-item--cta">
+          <a href="#contacto" class="menu-link menu-link--cta">Presentar proyecto →</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="menu-bottom">
+      <p class="menu-copy">© 2025 Babidibu Records</p>
+      <div class="menu-social">
+        <a href="#" data-platform="instagram">Instagram</a>
+        <a href="#" data-platform="youtube">YouTube</a>
+        <a href="#" data-platform="spotify">Spotify</a>
+      </div>
+    </div>
+
+  </div>
+
+  <main>
+
+    <!-- 01 HERO — logo · subtítulo · carrusel (100vh) -->
+    <section class="hero" id="inicio">
+
+      <!-- 1. Logo centrado -->
+      <div class="hero-brand">
+        <img
+          class="hero-logo"
+          src="imagenes-babidibu-records/logo nuevo babidibu .png"
+          alt="Babidibu Records"
+        >
+      </div>
+
+      <!-- 2. Subtítulo — descriptor del sello -->
+      <p class="hero-sub">Sello discográfico infantil</p>
+
+      <!-- 3. Carrusel horizontal -->
+      <div class="hero-carousel-outer">
+        <div class="hero-carousel" aria-hidden="true">
+          <div class="hero-carousel-track">
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-chani-vertical.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-lastrillizas-vertical.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-benito-tomasa-vertical.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-rincon-dani.mp4.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-hola-soy-chiquito-vertical.mp4.mp4" type="video/mp4"></video></div>
+            <!-- Set 2 — duplicado para loop seamless -->
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-chani-vertical.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-lastrillizas-vertical.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-benito-tomasa-vertical.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-rincon-dani.mp4.mp4" type="video/mp4"></video></div>
+            <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-hola-soy-chiquito-vertical.mp4.mp4" type="video/mp4"></video></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 02 ARTISTAS — sticky stack editorial -->
+    <section class="artistas-v2" id="artistas">
+
+      <div class="artistas-v2-header reveal">
+        <span class="label-number">02</span>
+        <h2 class="artistas-v2-heading">Artistas</h2>
+      </div>
+
+      <div class="artistas-stack">
+
+        <!-- 01 El Mundo de Chani -->
+        <article class="stack-card" style="--accent:#5FA55A">
+          <div class="stack-card-inner">
+            <div class="stack-card-image">
+              <img src="imagenes-babidibu-records/foto-chani.png" alt="El Mundo de Chani" loading="lazy">
+            </div>
+            <div class="stack-card-info">
+              <div class="stack-card-meta">
+                <span class="stack-card-idx">01</span>
+                <div class="stack-card-cats">
+                  <span>Artista</span>
+                  <span>Personaje</span>
+                </div>
+              </div>
+              <h3 class="stack-card-name">El Mundo<br>de Chani</h3>
+              <p class="stack-card-desc">El Mundo de Chani es una franquicia infantil musical que combina canciones originales, personajes entrañables y contenido audiovisual pensado para acompañar a las infancias a través del juego, la imaginación y la música.</p>
+              <div class="stack-card-social">
+                <a href="#" data-platform="instagram">Instagram</a>
+                <a href="#" data-platform="youtube">YouTube</a>
+                <a href="#" data-platform="spotify">Spotify</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 Las Trillizas de Oro -->
+        <article class="stack-card" style="--accent:#01B4BC">
+          <div class="stack-card-inner">
+            <div class="stack-card-image">
+              <img src="imagenes-babidibu-records/foto-lastrillizas.png" alt="Las Trillizas de Oro" loading="lazy">
+            </div>
+            <div class="stack-card-info">
+              <div class="stack-card-meta">
+                <span class="stack-card-idx">02</span>
+                <div class="stack-card-cats">
+                  <span>K-Pop Infantil</span>
+                  <span>Infantil</span>
+                  <span>Shows</span>
+                </div>
+              </div>
+              <h3 class="stack-card-name">Las Trillizas<br>de Oro</h3>
+              <p class="stack-card-desc">Proyecto de entretenimiento infantil que celebra el legado de Las Trillizas de Oro a través de música, fantasía y narrativa emocional, combinando live action, un universo mágico y una propuesta visual contemporánea.</p>
+              <div class="stack-card-social">
+                <img src="imagenes-babidibu-records/foto-lastrillizas.jpg" alt="Las Trillizas de Oro" loading="lazy">
+                <a href="#" data-platform="instagram">Instagram</a>
+                <a href="#" data-platform="youtube">YouTube</a>
+                <a href="#" data-platform="spotify">Spotify</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 Benito y Tomasa -->
+        <article class="stack-card" style="--accent:#FA8925">
+          <div class="stack-card-inner">
+            <div class="stack-card-image">
+              <img src="imagenes-babidibu-records/foto-benito-tomasa.png" alt="Benito y Tomasa" loading="lazy">
+            </div>
+            <div class="stack-card-info">
+              <div class="stack-card-meta">
+                <span class="stack-card-idx">03</span>
+                <div class="stack-card-cats">
+                  <span>Dúo Musical</span>
+                  <span>Familia</span>
+                </div>
+              </div>
+              <h3 class="stack-card-name">Benito<br>y Tomasa</h3>
+              <p class="stack-card-desc">Proyecto musical para toda la familia que combina canciones originales, personajes entrañables y una propuesta visual educativa diseñada para acompañar el crecimiento de niños y niñas.</p>
+              <div class="stack-card-social">
+                <a href="#" data-platform="instagram">Instagram</a>
+                <a href="#" data-platform="youtube">YouTube</a>
+                <a href="#" data-platform="tiktok">TikTok</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 El Rincón de Dani -->
+        <article class="stack-card" style="--accent:#FA5457">
+          <div class="stack-card-inner">
+            <div class="stack-card-image">
+              <img src="imagenes-babidibu-records/foto-dani.png" alt="El Rincón de Dani" loading="lazy">
+            </div>
+            <div class="stack-card-info">
+              <div class="stack-card-meta">
+                <span class="stack-card-idx">04</span>
+                <div class="stack-card-cats">
+                  <span>Serie Musical</span>
+                  <span>Streaming</span>
+                </div>
+              </div>
+              <h3 class="stack-card-name">El Rincón<br>de Dani</h3>
+              <p class="stack-card-desc">Daniela Mastricchio, actriz y cantante argentina, lidera este proyecto que conecta música, entretenimiento y experiencias positivas para las nuevas generaciones.</p>
+              <div class="stack-card-social">
+                <a href="#" data-platform="instagram">Instagram</a>
+                <a href="#" data-platform="youtube">YouTube</a>
+                <a href="#" data-platform="spotify">Spotify</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 Hola, Soy Chiquito -->
+        <article class="stack-card" style="--accent:#F6D51F">
+          <div class="stack-card-inner">
+            <div class="stack-card-image">
+              <img src="imagenes-babidibu-records/foto-chiquito.png" alt="Hola, Soy Chiquito" loading="lazy">
+            </div>
+            <div class="stack-card-info">
+              <div class="stack-card-meta">
+                <span class="stack-card-idx">05</span>
+                <div class="stack-card-cats stack-card-cats--amber">
+                  <span>Artista</span>
+                  <span>Pop</span>
+                </div>
+              </div>
+              <h3 class="stack-card-name">Hola, Soy<br>Chiquito</h3>
+              <p class="stack-card-desc">Marca nativa digital enfocada en la primera infancia, con canciones, videos y contenidos diseñados para acompañar el desarrollo emocional, creativo y educativo de niños y niñas.</p>
+              <div class="stack-card-social">
+                <a href="#" data-platform="instagram">Instagram</a>
+                <a href="#" data-platform="youtube">YouTube</a>
+                <a href="#" data-platform="tiktok">TikTok</a>
+                <a href="#" data-platform="spotify">Spotify</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 NOSOTROS -->
+    <section class="sobre" id="sobre">
+      <div class="sobre-inner">
+
+        <!-- Etiqueta -->
+        <p class="sobre-label reveal">( Nosotros )</p>
+
+        <!-- Título gigante centrado -->
+        <h2 class="sobre-title reveal">
+          Impulsamos el entretenimiento infantil<br>
+desde una visión <span class="sobre-accent">360°</span>
+        </h2>
+
+        <!-- Subtítulo -->
+        <p class="sobre-sub reveal">
+          Babidibu Records es un sello discográfico que nació con una convicción: niños y niñas merecen contenido que los sorprenda, que los emocione, que los acompañe. Trabajamos con artistas y proyectos que tienen algo genuino que decir.
+        </p>
+
+        <!-- Frase final -->
+        <p class="sobre-claim reveal">
+          No seguimos fórmulas.<br>
+          Construimos universos.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- 04 BABIDIBU TV -->
+    <section class="babidibu-tv" id="tv">
+      <div class="tv-content">
+        <span class="label-number reveal">04</span>
+        <img
+          class="tv-logo reveal"
+          src="imagenes-babidibu-records/logo babidibutv.png"
+          alt="Babidibu TV"
+        >
+        <p class="tv-desc reveal">
+          La plataforma de contenidos audiovisuales del universo Babidibu.
+          Historias, canciones y personajes que acompañan a niños y niñas
+          en cada pantalla.
+        </p>
+        <a href="#" class="tv-cta reveal">Ver programación →</a>
+      </div>
+    </section>
+
+    <!-- 05 SERVICIOS DEL SELLO — accordion premium -->
+    <section class="servicios-v2" id="servicios">
+
+      <div class="servicios-v2-header reveal">
+        <span class="label-number">05</span>
+        <h2 class="servicios-v2-title">Servicios del Sello</h2>
+      </div>
+
+      <div class="accordion">
+
+        <div class="acc-item" style="--acc-color:#5FA55A">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">01</span>
+            <span class="acc-name">Artistas &amp; Songwriters</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Desarrollamos artistas con propósito. Desde la identidad sonora hasta la narrativa de marca, construimos el universo que conecta con las infancias y sus familias.</p>
+              <ul class="acc-tags">
+                <li>Desarrollo artístico</li>
+                <li>Composición</li>
+                <li>Representación</li>
+                <li>Carrera musical</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" style="--acc-color:#01B4BC">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">02</span>
+            <span class="acc-name">Publishing</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Registramos, administramos y potenciamos el valor de tus canciones. Generamos oportunidades de sync, licensing y explotación del catálogo en múltiples territorios.</p>
+              <ul class="acc-tags">
+                <li>Derechos de autor</li>
+                <li>Editorial musical</li>
+                <li>Catálogo</li>
+                <li>Sincronizaciones</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" style="--acc-color:#FA8925">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">03</span>
+            <span class="acc-name">Shows &amp; Venue</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Diseñamos y producimos shows en vivo, giras y experiencias presenciales que convierten la música en momentos reales entre el artista y su audiencia.</p>
+              <ul class="acc-tags">
+                <li>Shows en vivo</li>
+                <li>Producción escénica</li>
+                <li>Giras</li>
+                <li>Market Fun</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" style="--acc-color:#FA5457">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">04</span>
+            <span class="acc-name">Producción Musical</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Del concepto al master. Songwriting, arreglos, grabación, mix y mastering con dirección artística orientada al mercado del entretenimiento infantil global.</p>
+              <ul class="acc-tags">
+                <li>Songwriting</li>
+                <li>Mix &amp; Master</li>
+                <li>Dirección artística</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" style="--acc-color:#c8a800">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">05</span>
+            <span class="acc-name">Proyectos Audiovisuales</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Videoclips, series y contenido original para plataformas de streaming y redes sociales. Del concepto a la pantalla, producción diseñada para las infancias del siglo XXI.</p>
+              <ul class="acc-tags">
+                <li>Videoclips</li>
+                <li>Series Verticales</li>
+                <li>Streaming</li>
+                <li>Social Media</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" style="--acc-color:#5FA55A">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-num">06</span>
+            <span class="acc-name">Marketing Digital</span>
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" aria-hidden="true">
+            <div class="acc-content">
+              <p class="acc-desc">Llevamos tu música a las plataformas principales y diseñamos la estrategia digital para que tu proyecto crezca, se posicione y construya audiencia real y sostenible.</p>
+              <ul class="acc-tags">
+                <li>Distribución digital</li>
+                <li>Estrategia de contenidos</li>
+                <li>Audiencia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 06 PRESENTAR PROYECTO -->
+    <section class="formulario" id="contacto">
+      <div class="formulario-inner">
+
+        <!-- Estado inicial: etiqueta + selector -->
+        <p class="form-pres-label reveal">( Presentar proyecto )</p>
+        <p class="form-pres-subtitle reveal">Seleccioná una categoría</p>
+
+        <!-- Dropdown personalizado -->
+        <div class="form-dropdown reveal" id="formDropdown">
+          <button class="form-dropdown-trigger" id="formDropdownTrigger" type="button" aria-expanded="false" aria-haspopup="listbox">
+            <span class="form-dropdown-value" id="formDropdownValue">Elegir proyecto</span>
+            <span class="form-dropdown-arrow" aria-hidden="true">↓</span>
+          </button>
+          <div class="form-dropdown-menu" id="formDropdownMenu" role="listbox" aria-hidden="true">
+            <button class="form-dropdown-item" type="button" data-color="#5FA55A" role="option">Artista o proyecto musical</button>
+            <button class="form-dropdown-item" type="button" data-color="#01B4BC" role="option">Canción o lanzamiento</button>
+            <button class="form-dropdown-item" type="button" data-color="#F6D51F" role="option">Personaje infantil</button>
+            <button class="form-dropdown-item" type="button" data-color="#FA8925" role="option">Serie o proyecto audiovisual</button>
+            <button class="form-dropdown-item" type="button" data-color="#FA5457" role="option">Canal o comunidad</button>
+            <button class="form-dropdown-item" type="button" data-color="#5FA55A" role="option">Idea para Babidibu TV</button>
+          </div>
+        </div>
+
+        <!-- Formulario — aparece al elegir una categoría -->
+        <div class="form-pres-body" id="formPresBody" aria-hidden="true">
+          <div class="form-pres-body-inner">
+
+            <form class="form-pres-fields" novalidate>
+
+              <div class="form-field">
+                <label for="fp-nombre">Nombre</label>
+                <input id="fp-nombre" type="text" name="nombre" placeholder="¿Cómo te llamás?" autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="fp-email">Email</label>
+                <input id="fp-email" type="email" name="email" placeholder="tu@email.com" autocomplete="email">
+              </div>
+              <div class="form-field">
+                <label for="fp-instagram">Instagram</label>
+                <input id="fp-instagram" type="text" name="instagram" placeholder="@usuario">
+              </div>
+              <div class="form-field">
+                <label for="fp-spotify">Spotify</label>
+                <input id="fp-spotify" type="text" name="spotify" placeholder="Link o nombre del perfil">
+              </div>
+
+              <button type="button" class="form-pres-expand" id="formExpandBtn">+ Más información</button>
+
+              <div class="form-pres-extra" id="formPresExtra">
+                <div class="form-pres-extra-inner">
+                  <div class="form-field">
+                    <label for="fp-proyecto">Nombre del proyecto</label>
+                    <input id="fp-proyecto" type="text" name="proyecto">
+                  </div>
+                  <div class="form-field">
+                    <label for="fp-link">Link del proyecto</label>
+                    <input id="fp-link" type="url" name="link" placeholder="https://...">
+                  </div>
+                  <div class="form-field">
+                    <label for="fp-material">Material adicional</label>
+                    <input id="fp-material" type="text" name="material" placeholder="Drive, Dropbox, WeTransfer...">
+                  </div>
+                  <div class="form-field">
+                    <label for="fp-desc">Descripción</label>
+                    <textarea id="fp-desc" name="descripcion" rows="3" placeholder="Contanos de qué se trata..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">Presentar proyecto →</button>
+
+            </form>
+
+            <p class="form-pres-trust">
+              Nos tomamos el tiempo de revisar cada propuesta. Si creemos que puede encajar con el universo Babidibu, nos pondremos en contacto.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 07 FOOTER -->
+  <footer class="footer">
+
+    <!-- Notas musicales decorativas — muy sutiles -->
+    <div class="footer-notes" aria-hidden="true">
+      <span style="--nx:4%;  --ny:18%; --ns:26px; --nc:#5FA55A; --no:0.11;">♫</span>
+      <span style="--nx:14%; --ny:65%; --ns:16px; --nc:#01B4BC; --no:0.09;">♩</span>
+      <span style="--nx:84%; --ny:12%; --ns:20px; --nc:#FA5457; --no:0.10;">♬</span>
+      <span style="--nx:93%; --ny:58%; --ns:15px; --nc:#FA8925; --no:0.09;">♪</span>
+      <span style="--nx:50%; --ny:88%; --ns:18px; --nc:#c8a800; --no:0.09;">♫</span>
+      <span style="--nx:28%; --ny:40%; --ns:12px; --nc:#FA5457; --no:0.07;">♩</span>
+      <span style="--nx:72%; --ny:75%; --ns:14px; --nc:#5FA55A; --no:0.08;">♪</span>
+    </div>
+
+    <!-- Logo -->
+    <div class="footer-brand">
+      <img
+        class="footer-logo"
+        src="imagenes-babidibu-records/logo nuevo babidibu .png"
+        alt="Babidibu Records"
+      >
+    </div>
+
+    <!-- Grid de columnas -->
+    <div class="footer-grid">
+      <div class="footer-col footer-col--artistas">
+        <h4>Artistas</h4>
+        <ul>
+          <li><a href="#artistas">El Mundo de Chani</a></li>
+          <li><a href="#artistas">Las Trillizas de Oro</a></li>
+          <li><a href="#artistas">Benito y Tomasa</a></li>
+          <li><a href="#artistas">El Rincón de Dani</a></li>
+          <li><a href="#artistas">Hola Soy Chiquito</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col--servicios">
+        <h4>Servicios</h4>
+        <ul>
+          <li>Producción Musical</li>
+          <li>Desarrollo Artístico</li>
+          <li>Contenido Audiovisual</li>
+          <li>Distribución Digital</li>
+          <li>Marketing</li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col--contacto">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@babidibu.com">hola@babidibu.com</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Spotify</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-palette" aria-hidden="true">
+        <span style="background:#5FA55A"></span>
+        <span style="background:#01B4BC"></span>
+        <span style="background:#F6D51F"></span>
+        <span style="background:#FA8925"></span>
+        <span style="background:#FA5457"></span>
+      </div>
+      <p>© 2025 Babidibu Records. Todos los derechos reservados.</p>
+    </div>
+
+  </footer>
+
+  <script>
+    // ─── Header scroll ────────────────────────────────────────────
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+
+    // ─── Menú fullscreen ──────────────────────────────────────────
+    const menuBtn     = document.getElementById('menuBtn');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      document.body.classList.add('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', () => {
+      document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+    });
+
+    // Cerrar al hacer click en un link del menú
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
+    });
+
+    // ─── Scroll reveal ────────────────────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // (gallery is CSS-animated marquee, no JS parallax needed)
+
+    // ─── Sticky cards: depth animation ───────────────────────────
+    const stackCards = document.querySelectorAll('.stack-card');
+
+    function animateStack() {
+      stackCards.forEach((card, i) => {
+        const next = stackCards[i + 1];
+        if (!next) return;
+        const inner = card.querySelector('.stack-card-inner');
+        const nextTop = next.getBoundingClientRect().top;
+        const stickyTop = 80 + i * 4;
+        const zone = card.offsetHeight * 0.32;
+        const raw = (stickyTop + zone - nextTop) / zone;
+        const p = Math.max(0, Math.min(1, raw));
+        inner.style.opacity = 1 - p * 0.18;
+        inner.style.transform = `translateY(${-p * 14}px)`;
+      });
+    }
+
+    let stackTick = false;
+    window.addEventListener('scroll', () => {
+      if (!stackTick) {
+        requestAnimationFrame(() => { animateStack(); stackTick = false; });
+        stackTick = true;
+      }
+    }, { passive: true });
+
+    // ─── Accordion de servicios ───────────────────────────────────
+    const accItems = document.querySelectorAll('.acc-item');
+
+    accItems.forEach(item => {
+      const trigger = item.querySelector('.acc-trigger');
+      const body    = item.querySelector('.acc-body');
+
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Cerrar todos
+        accItems.forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+          i.querySelector('.acc-body').setAttribute('aria-hidden', 'true');
+        });
+
+        // Abrir el clickeado (si estaba cerrado)
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          body.setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+
+    // ─── Presentar proyecto: dropdown ────────────────────────────
+    const formDropdown        = document.getElementById('formDropdown');
+    const formDropdownTrigger = document.getElementById('formDropdownTrigger');
+    const formDropdownMenu    = document.getElementById('formDropdownMenu');
+    const formDropdownValue   = document.getElementById('formDropdownValue');
+    const formPresBody        = document.getElementById('formPresBody');
+
+    // Abrir/cerrar el dropdown
+    formDropdownTrigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      formDropdown.classList.toggle('open');
+      formDropdownTrigger.setAttribute('aria-expanded', formDropdown.classList.contains('open'));
+    });
+
+    // Cerrar al hacer click fuera
+    document.addEventListener('click', (e) => {
+      if (formDropdown && !formDropdown.contains(e.target)) {
+        formDropdown.classList.remove('open');
+        formDropdownTrigger?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Seleccionar opción
+    document.querySelectorAll('.form-dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        formDropdownValue.textContent = item.textContent;
+        formDropdownTrigger.classList.add('has-value');
+        formDropdown.classList.remove('open');
+        formDropdownTrigger.setAttribute('aria-expanded', 'false');
+        formDropdownMenu.setAttribute('aria-hidden', 'true');
+        // Mostrar el formulario
+        formPresBody.classList.add('active');
+        formPresBody.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    // ─── Expansión de campos extra ────────────────────────────────
+    const formExpandBtn = document.getElementById('formExpandBtn');
+    const formPresExtra = document.getElementById('formPresExtra');
+    let extraOpen = false;
+
+    formExpandBtn?.addEventListener('click', () => {
+      extraOpen = !extraOpen;
+      formPresExtra.classList.toggle('expanded', extraOpen);
+      formExpandBtn.textContent = extraOpen ? '− Menos información' : '+ Más información';
+    });
+
+    // ─── Video reveal on scroll ────────────────────────────────────
+    const artVideos = document.querySelectorAll('.babidibu-tv video');
+    const videoObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.play();
+        else e.target.pause();
+      });
+    }, { threshold: 0.3 });
+    artVideos.forEach(v => videoObs.observe(v));
+  </script>
+</body>
+</html>

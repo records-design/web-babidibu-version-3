@@ -12,11 +12,13 @@
 </head>
 <body>
 
-  <!-- HEADER — logo izq + botón "+" der -->
+  <!-- HEADER — logo centrado (aparece al scroll) + botón "+" -->
   <header class="header" id="header">
-    <a href="#inicio" class="header-logo">
-      <img src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="Babidibu Records">
-    </a>
+    <img
+      class="header-logo-small"
+      src="imagenes-babidibu-records/logo nuevo babidibu .png"
+      alt="Babidibu Records"
+    >
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
       <span class="menu-btn-char">+</span>
     </button>
@@ -28,41 +30,35 @@
     <nav class="menu-nav">
       <ul class="menu-links">
         <li class="menu-item">
-          <span class="menu-num">01</span>
-          <a href="#artistas" class="menu-link">Artistas</a>
+          <span class="menu-num">( _01 )</span>
+          <a href="#artistas" class="menu-link" style="color:#5FA55A">Artistas</a>
         </li>
         <li class="menu-item">
-          <span class="menu-num">02</span>
-          <a href="#sobre" class="menu-link">Nosotros</a>
+          <span class="menu-num">( _02 )</span>
+          <a href="#sobre" class="menu-link" style="color:#01B4BC">Nosotros</a>
         </li>
         <li class="menu-item">
-          <span class="menu-num">03</span>
-          <a href="#servicios" class="menu-link">Servicios</a>
+          <span class="menu-num">( _03 )</span>
+          <a href="#servicios" class="menu-link" style="color:#FA8925">Servicios</a>
+        </li>
+        
+        <li class="menu-item">
+          <span class="menu-num">( _05 )</span>
+          <a href="#tv" class="menu-link" style="color:#c8a800">Babidibu TV</a>
         </li>
         <li class="menu-item">
-          <span class="menu-num">04</span>
-          <a href="#" class="menu-link">Lanzamientos</a>
-        </li>
-        <li class="menu-item">
-          <span class="menu-num">05</span>
-          <a href="#tv" class="menu-link">Babidibu TV</a>
-        </li>
-        <li class="menu-item">
-          <span class="menu-num">06</span>
-          <a href="#contacto" class="menu-link">Contacto</a>
-        </li>
-        <li class="menu-item menu-item--cta">
-          <a href="#contacto" class="menu-link menu-link--cta">Presentar proyecto →</a>
+          <span class="menu-num">( _06 )</span>
+          <a href="#contacto" class="menu-link" style="color:#5FA55A">Presentar proyecto</a>
         </li>
       </ul>
     </nav>
 
     <div class="menu-bottom">
-      <p class="menu-copy">© 2025 Babidibu Records</p>
+      
       <div class="menu-social">
-        <a href="#">Instagram</a>
-        <a href="#">YouTube</a>
-        <a href="#">Spotify</a>
+        <a href="#" data-platform="instagram">Instagram</a>
+        <a href="#" data-platform="youtube">YouTube</a>
+        <a href="#" data-platform="spotify">Spotify</a>
       </div>
     </div>
 
@@ -70,23 +66,20 @@
 
   <main>
 
-    <!-- 01 HERO — logo · badge · carrusel · título · ticker -->
+    <!-- 01 HERO — logo centrado + carrusel -->
     <section class="hero" id="inicio">
 
-      <!-- 1. Logo + badge -->
-      <div class="hero-brand">
+      <!-- Logo centrado -->
+      <div class="hero-center">
         <img
           class="hero-logo"
           src="imagenes-babidibu-records/logo nuevo babidibu .png"
           alt="Babidibu Records"
         >
-        <p class="hero-badge">Sello discográfico infantil</p>
       </div>
 
-      <!-- 2. Carrusel + 3. Título + 4. Ticker -->
+      <!-- Carrusel grande -->
       <div class="hero-lower">
-
-        <!-- Carrusel en loop -->
         <div class="hero-carousel" aria-hidden="true">
           <div class="hero-carousel-track">
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-chani-vertical.mp4" type="video/mp4"></video></div>
@@ -94,7 +87,7 @@
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-benito-tomasa-vertical.mp4" type="video/mp4"></video></div>
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-rincon-dani.mp4.mp4" type="video/mp4"></video></div>
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-hola-soy-chiquito-vertical.mp4.mp4" type="video/mp4"></video></div>
-            <!-- Set 2 — duplicado para loop seamless -->
+            <!-- Set 2 — loop seamless -->
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-chani-vertical.mp4" type="video/mp4"></video></div>
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-lastrillizas-vertical.mp4" type="video/mp4"></video></div>
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-benito-tomasa-vertical.mp4" type="video/mp4"></video></div>
@@ -102,76 +95,34 @@
             <div class="hero-cpiece"><video autoplay muted loop playsinline><source src="imagenes-babidibu-records/video-hola-soy-chiquito-vertical.mp4.mp4" type="video/mp4"></video></div>
           </div>
         </div>
-
-        <!-- Título + ticker superpuestos sobre la parte inferior del carrusel -->
-        <div class="hero-words">
-
-          <h1 class="hero-title">
-            Creamos <span class="hw-verde">música</span>,<br>
-            <span class="hw-turquesa">artistas</span> y <span class="hw-coral">universos</span><br>
-            para las infancias.
-          </h1>
-
-          <!-- Ticker de logos -->
-          <div class="hero-ticker" aria-hidden="true">
-            <div class="hero-ticker-track">
-              <!-- Set 1 -->
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <!-- Set 2 — duplicado para loop seamless -->
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo babidibutv.png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-              <div class="hero-ticker-unit">
-                <img class="hero-tlogo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="">
-                <span class="hero-tdot">•</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
       </div>
 
     </section>
 
-    <!-- 02 ARTISTAS — sticky stack editorial -->
+    <!-- 02 NOSOTROS -->
+    <section class="sobre" id="sobre">
+      <div class="sobre-inner">
+        <p class="sobre-label reveal">( Nosotros )</p>
+        <h2 class="sobre-title reveal">
+          Impulsamos el entretenimiento infantil<br>
+desde una visión <span class="sobre-accent">360°</span>
+        </h2>
+        <p class="sobre-sub reveal">
+          Babidibu Records es un sello discográfico que nació con una convicción: niños y niñas merecen contenido que los sorprenda, que los emocione, que los acompañe. Trabajamos con artistas y proyectos que tienen algo genuino que decir.
+        </p>
+        <p class="sobre-claim reveal">
+          No seguimos fórmulas.<br>
+          Construimos universos.
+        </p>
+      </div>
+    </section>
+
+    <!-- 03 ARTISTAS — sticky stack editorial -->
     <section class="artistas-v2" id="artistas">
 
       <div class="artistas-v2-header reveal">
         <span class="label-number">02</span>
-        <h2 class="artistas-v2-heading">Artistas</h2>
+        <h2 class="artistas-v2-heading">Artistas.</h2>
       </div>
 
       <div class="artistas-stack">
@@ -191,13 +142,12 @@
                 </div>
               </div>
               <h3 class="stack-card-name">El Mundo<br>de Chani</h3>
-              <p class="stack-card-desc">El Mundo de Chani es una franquicia infantil musical que combina canciones originales, personajes entrañables y contenido audiovisual pensado para acompañar a las infancias a través del juego, la imaginación y la música.</p>
+              <p class="stack-card-desc">El Mundo de Chani es una franquicia infantojuvenil transmedia que va más allá de un programa: es un ecosistema educativo y musical. Liderado por Chani, conecta con niños a través de la música, el humor y la curiosidad.</p>
               <div class="stack-card-social">
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">Spotify</a>
+                <a href="https://www.instagram.com/elmundodechani/" target="_blank" rel="noopener" data-platform="instagram">Instagram</a>
+                <a href="https://www.youtube.com/@ElmundodeChani" target="_blank" rel="noopener" data-platform="youtube">YouTube</a>
+                <a href="https://open.spotify.com/intl-es/artist/3HlnSMpliruSWrru0aHSv0" target="_blank" rel="noopener" data-platform="spotify">Spotify</a>
               </div>
-              <a href="#" class="stack-card-btn">Conocer proyecto →</a>
             </div>
           </div>
         </article>
@@ -206,7 +156,7 @@
         <article class="stack-card" style="--accent:#01B4BC">
           <div class="stack-card-inner">
             <div class="stack-card-image">
-              <img src="imagenes-babidibu-records/foto-lastrillizas.png" alt="Las Trillizas de Oro" loading="lazy">
+              <img src="imagenes-babidibu-records/foto-lastrillizas.jpg" alt="Las Trillizas de Oro" loading="lazy">
             </div>
             <div class="stack-card-info">
               <div class="stack-card-meta">
@@ -220,11 +170,10 @@
               <h3 class="stack-card-name">Las Trillizas<br>de Oro</h3>
               <p class="stack-card-desc">Proyecto de entretenimiento infantil que celebra el legado de Las Trillizas de Oro a través de música, fantasía y narrativa emocional, combinando live action, un universo mágico y una propuesta visual contemporánea.</p>
               <div class="stack-card-social">
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">Spotify</a>
+                <a href="https://www.instagram.com/lastrillizasoro/" target="_blank" rel="noopener" data-platform="instagram">Instagram</a>
+                <a href="https://www.youtube.com/c/LasTrillizasDeOroOficial" target="_blank" rel="noopener" data-platform="youtube">YouTube</a>
+                <a href="https://open.spotify.com/artist/2b9zz2TMaqq9Lp7QFJPf3m" target="_blank" rel="noopener" data-platform="spotify">Spotify</a>
               </div>
-              <a href="#" class="stack-card-btn">Conocer proyecto →</a>
             </div>
           </div>
         </article>
@@ -244,18 +193,18 @@
                 </div>
               </div>
               <h3 class="stack-card-name">Benito<br>y Tomasa</h3>
-              <p class="stack-card-desc">Proyecto musical para toda la familia que combina canciones originales, personajes entrañables y una propuesta visual educativa diseñada para acompañar el crecimiento de niños y niñas.</p>
+              <p class="stack-card-desc">Proyecto de música infantil con ADN rockero que combina canciones originales, personajes entrañables y una propuesta visual y educativa diseñada para inspirar creatividad, diversión y aprendizaje en toda la familia.</p>
               <div class="stack-card-social">
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">TikTok</a>
+                <a href="#" data-platform="instagram">Instagram</a>
+                <a href="#" data-platform="youtube">YouTube</a>
+                <a href="#" data-platform="tiktok">TikTok</a>
               </div>
-              <a href="#" class="stack-card-btn">Conocer proyecto →</a>
             </div>
           </div>
         </article>
 
         <!-- 04 El Rincón de Dani -->
+        <!-- ⚠️ Benito y Tomasa: no encontré sus redes. Pasame las URLs cuando puedas. -->
         <article class="stack-card" style="--accent:#FA5457">
           <div class="stack-card-inner">
             <div class="stack-card-image">
@@ -270,13 +219,12 @@
                 </div>
               </div>
               <h3 class="stack-card-name">El Rincón<br>de Dani</h3>
-              <p class="stack-card-desc">Daniela Mastricchio, actriz y cantante argentina, lidera este proyecto que conecta música, entretenimiento y experiencias positivas para las nuevas generaciones.</p>
+              <p class="stack-card-desc">Daniella Mastricchio, actriz y cantante argentina, conquistó a una generación como Sol Rivera en Chiquititas. Hoy lidera El Rincón de Dani, un espacio creativo de música, juegos y cuentos, consolidándose como referente del entretenimiento familiar.</p>
               <div class="stack-card-social">
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">Spotify</a>
+                <a href="https://www.instagram.com/daniellamastri/" target="_blank" rel="noopener" data-platform="instagram">Instagram</a>
+                <a href="https://www.youtube.com/@DaniellaMastricchio" target="_blank" rel="noopener" data-platform="youtube">YouTube</a>
+                <a href="https://open.spotify.com/artist/11zPiOcDlAVRWL3tZfNKyr" target="_blank" rel="noopener" data-platform="spotify">Spotify</a>
               </div>
-              <a href="#" class="stack-card-btn">Conocer proyecto →</a>
             </div>
           </div>
         </article>
@@ -296,14 +244,12 @@
                 </div>
               </div>
               <h3 class="stack-card-name">Hola, Soy<br>Chiquito</h3>
-              <p class="stack-card-desc">Marca nativa digital enfocada en la primera infancia, con canciones, videos y contenidos diseñados para acompañar el desarrollo emocional, creativo y educativo de niños y niñas.</p>
+              <p class="stack-card-desc">Es el mejor amigo virtual de la primera infancia: una marca nativa digital que ofrece contenido dinámico, seguro y estimulante, creando una conexión emocional cercana y de confianza con niños y familias a través del juego, la música y el aprendizaje.</p>
               <div class="stack-card-social">
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">TikTok</a>
-                <a href="#">Spotify</a>
+                <a href="https://www.instagram.com/chiquito.ok/" target="_blank" rel="noopener" data-platform="instagram">Instagram</a>
+                <a href="https://www.youtube.com/@holasoychiquito" target="_blank" rel="noopener" data-platform="youtube">YouTube</a>
+                <a href="https://open.spotify.com/artist/28nHReKTbDIqT1xidKL5wu" target="_blank" rel="noopener" data-platform="spotify">Spotify</a>
               </div>
-              <a href="#" class="stack-card-btn">Conocer proyecto →</a>
             </div>
           </div>
         </article>
@@ -311,32 +257,6 @@
       </div>
     </section>
 
-    <!-- 03 NOSOTROS -->
-    <section class="sobre" id="sobre">
-      <div class="sobre-inner">
-
-        <!-- Etiqueta -->
-        <p class="sobre-label reveal">( Nosotros )</p>
-
-        <!-- Título gigante centrado -->
-        <h2 class="sobre-title reveal">
-          Impulsamos el entretenimiento infantil<br>
-desde una visión <span class="sobre-accent">360°</span>
-        </h2>
-
-        <!-- Subtítulo -->
-        <p class="sobre-sub reveal">
-          Babidibu Records es un sello creativo que nació con una convicción: niños y niñas merecen contenido que los sorprenda, que los emocione, que los acompañe. Trabajamos con artistas y proyectos que tienen algo genuino que decir.
-        </p>
-
-        <!-- Frase final -->
-        <p class="sobre-claim reveal">
-          No seguimos fórmulas.<br>
-          Construimos universos.
-        </p>
-
-      </div>
-    </section>
 
     <!-- 04 BABIDIBU TV -->
     <section class="babidibu-tv" id="tv">
@@ -348,11 +268,19 @@ desde una visión <span class="sobre-accent">360°</span>
           alt="Babidibu TV"
         >
         <p class="tv-desc reveal">
-          La plataforma de contenidos audiovisuales del universo Babidibu.
-          Historias, canciones y personajes que acompañan a niños y niñas
-          en cada pantalla.
+          La plataforma de contenidos audiovisuales del universo Babidibu Records.
+          Historias, canciones y personajes que acompañan a niños y niñas.
         </p>
-        <a href="#" class="tv-cta reveal">Ver programación →</a>
+        <a href="https://www.youtube.com/@BABIDIBUTV"
+           class="tv-cta reveal"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Visitar Babidibu TV en YouTube (abre en nueva pestaña)">
+          Visitar canal
+          <svg class="tv-cta-icon" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+            <path d="M1 10L10 1M10 1H4M10 1V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </section>
 
@@ -361,7 +289,7 @@ desde una visión <span class="sobre-accent">360°</span>
 
       <div class="servicios-v2-header reveal">
         <span class="label-number">05</span>
-        <h2 class="servicios-v2-title">Servicios del Sello</h2>
+        <h2 class="servicios-v2-title">Nuestros servicios.</h2>
       </div>
 
       <div class="accordion">
@@ -486,87 +414,87 @@ desde una visión <span class="sobre-accent">360°</span>
     <section class="formulario" id="contacto">
       <div class="formulario-inner">
 
-        <!-- Estado inicial: etiqueta + selector -->
-        <p class="form-pres-label reveal">( Presentar proyecto )</p>
-        <p class="form-pres-subtitle reveal">Seleccioná una categoría</p>
-
-        <!-- Dropdown personalizado -->
-        <div class="form-dropdown reveal" id="formDropdown">
-          <button class="form-dropdown-trigger" id="formDropdownTrigger" type="button" aria-expanded="false" aria-haspopup="listbox">
-            <span class="form-dropdown-value" id="formDropdownValue">Elegir proyecto</span>
-            <span class="form-dropdown-arrow" aria-hidden="true">↓</span>
-          </button>
-          <div class="form-dropdown-menu" id="formDropdownMenu" role="listbox" aria-hidden="true">
-            <button class="form-dropdown-item" type="button" data-color="#5FA55A" role="option">Artista o proyecto musical</button>
-            <button class="form-dropdown-item" type="button" data-color="#01B4BC" role="option">Canción o lanzamiento</button>
-            <button class="form-dropdown-item" type="button" data-color="#F6D51F" role="option">Personaje infantil</button>
-            <button class="form-dropdown-item" type="button" data-color="#FA8925" role="option">Serie o proyecto audiovisual</button>
-            <button class="form-dropdown-item" type="button" data-color="#FA5457" role="option">Canal o comunidad</button>
-            <button class="form-dropdown-item" type="button" data-color="#5FA55A" role="option">Idea para Babidibu TV</button>
-          </div>
+        <div class="form-header reveal">
+          <span class="label-number">06</span>
+          <h2 class="form-heading">¿Querés ser parte<br>del Universo Babidibu Records?</h2>
+          <p class="form-intro">Artistas, creadores y marcas.<br>Nos encantaría trabajar con ustedes.</p>
         </div>
 
-        <!-- Formulario — aparece al elegir una categoría -->
-        <div class="form-pres-body" id="formPresBody" aria-hidden="true">
-          <div class="form-pres-body-inner">
+        <form class="form-flat" novalidate>
 
-            <form class="form-pres-fields" novalidate>
+          <!-- 01 Datos de contacto -->
+          <div class="form-section reveal">
+            <p class="form-section-label">01 — Datos de contacto</p>
+            <div class="form-field"><label>Nombre</label><input type="text" name="nombre" autocomplete="name"></div>
+            <div class="form-field"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+            <div class="form-field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="+54 9..."></div>
+          </div>
 
-              <div class="form-field">
-                <label for="fp-nombre">Nombre</label>
-                <input id="fp-nombre" type="text" name="nombre" placeholder="¿Cómo te llamás?" autocomplete="name">
-              </div>
-              <div class="form-field">
-                <label for="fp-email">Email</label>
-                <input id="fp-email" type="email" name="email" placeholder="tu@email.com" autocomplete="email">
-              </div>
-              <div class="form-field">
-                <label for="fp-instagram">Instagram</label>
-                <input id="fp-instagram" type="text" name="instagram" placeholder="@usuario">
-              </div>
-              <div class="form-field">
-                <label for="fp-spotify">Spotify</label>
-                <input id="fp-spotify" type="text" name="spotify" placeholder="Link o nombre del perfil">
-              </div>
+          <!-- 02 Tu proyecto -->
+          <div class="form-section reveal">
+            <p class="form-section-label">02 — Tu proyecto</p>
 
-              <button type="button" class="form-pres-expand" id="formExpandBtn">+ Más información</button>
-
-              <div class="form-pres-extra" id="formPresExtra">
-                <div class="form-pres-extra-inner">
-                  <div class="form-field">
-                    <label for="fp-proyecto">Nombre del proyecto</label>
-                    <input id="fp-proyecto" type="text" name="proyecto">
-                  </div>
-                  <div class="form-field">
-                    <label for="fp-link">Link del proyecto</label>
-                    <input id="fp-link" type="url" name="link" placeholder="https://...">
-                  </div>
-                  <div class="form-field">
-                    <label for="fp-material">Material adicional</label>
-                    <input id="fp-material" type="text" name="material" placeholder="Drive, Dropbox, WeTransfer...">
-                  </div>
-                  <div class="form-field">
-                    <label for="fp-desc">Descripción</label>
-                    <textarea id="fp-desc" name="descripcion" rows="3" placeholder="Contanos de qué se trata..."></textarea>
-                  </div>
+            <!-- Dropdown custom de categoría -->
+            <div class="form-field">
+              <span class="form-field-question">¿Qué querés presentar?</span>
+              <div class="form-select" id="categorySelect">
+                <button class="form-select-trigger" type="button"
+                        aria-haspopup="listbox" aria-expanded="false" id="categoryTrigger">
+                  <span class="form-select-value" id="categoryValue">Seleccioná una categoría</span>
+                  <span class="form-select-arrow" aria-hidden="true">↓</span>
+                </button>
+                <input type="hidden" name="categoria" id="categoriaInput">
+                <div class="form-select-menu" role="listbox" aria-label="Tipo de proyecto" id="categoryMenu">
+                  <button class="form-select-option" type="button" data-value="artista" role="option">Artista musical</button>
+                  <button class="form-select-option" type="button" data-value="creador" role="option">Creador de contenido</button>
+                  <button class="form-select-option" type="button" data-value="marca" role="option">Marca o producto</button>
+                  <button class="form-select-option" type="button" data-value="personaje" role="option">Personaje infantil</button>
+                  <button class="form-select-option" type="button" data-value="serie" role="option">Serie o canal</button>
+                  <button class="form-select-option" type="button" data-value="otro" role="option">Otro</button>
                 </div>
               </div>
+            </div>
 
-              <button type="submit" class="btn-submit">Presentar proyecto →</button>
-
-            </form>
-
-            <p class="form-pres-trust">
-              Nos tomamos el tiempo de revisar cada propuesta. Si creemos que puede encajar con el universo Babidibu, nos pondremos en contacto.
-            </p>
-
+            <div class="form-field">
+              <label>Descripción</label>
+              <textarea name="descripcion" rows="4" placeholder="Contanos sobre tu proyecto..."></textarea>
+            </div>
           </div>
-        </div>
+
+          <!-- 03 Material y enlaces -->
+          <div class="form-section reveal">
+            <p class="form-section-label">03 — Material y enlaces</p>
+            <label class="form-upload" id="uploadZone">
+              <input type="file" id="fileInput" name="material" multiple
+                     accept=".mp3,.wav,.mp4,.pdf,.zip"
+                     style="position:absolute;opacity:0;width:1px;height:1px;">
+              <span class="form-upload-icon">&#8593;</span>
+              <span class="form-upload-text">Subí tu material</span>
+              <span class="form-upload-formats">MP3 &middot; WAV &middot; MP4 &middot; PDF &middot; ZIP</span>
+              <span class="form-upload-files" id="uploadFiles"></span>
+            </label>
+            <div class="form-field"><label>Spotify</label><input type="url" name="spotify" placeholder="https://..."></div>
+            <div class="form-field"><label>YouTube</label><input type="url" name="youtube" placeholder="https://..."></div>
+            <div class="form-field"><label>Apple Music</label><input type="url" name="apple" placeholder="https://..."></div>
+            <div class="form-field"><label>Instagram</label><input type="url" name="instagram-url" placeholder="https://..."></div>
+            <div class="form-field"><label>TikTok</label><input type="url" name="tiktok" placeholder="https://..."></div>
+          </div>
+
+          <!-- Enviar -->
+          <div class="form-submit-wrap reveal">
+            <button type="submit" class="btn-submit">Enviar proyecto &#8594;</button>
+          </div>
+
+        </form>
 
       </div>
     </section>
 
   </main>
+
+
+
+
 
   <!-- 07 FOOTER -->
   <footer class="footer">
@@ -616,7 +544,7 @@ desde una visión <span class="sobre-accent">360°</span>
       <div class="footer-col footer-col--contacto">
         <h4>Contacto</h4>
         <ul>
-          <li><a href="mailto:hola@babidibu.com">hola@babidibu.com</a></li>
+          <li><a href="mailto:hola@babidibu.com">babidibutv@beathousemiami.com </a></li>
           <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="#" target="_blank" rel="noopener">Spotify</a></li>
@@ -633,17 +561,21 @@ desde una visión <span class="sobre-accent">360°</span>
         <span style="background:#FA8925"></span>
         <span style="background:#FA5457"></span>
       </div>
-      <p>© 2025 Babidibu Records. Todos los derechos reservados.</p>
+      <p>© 2026 Babidibu Records by BeatHouse Miami Inc. Todos los derechos reservados.</p>
     </div>
 
   </footer>
 
   <script>
-    // ─── Header scroll ────────────────────────────────────────────
+    // ─── Header: logo aparece cuando el hero-logo-big sale del viewport ──
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 80);
-    }, { passive: true });
+    const heroLogo = document.querySelector('.hero-logo');
+    if (heroLogo) {
+      const logoObs = new IntersectionObserver(([entry]) => {
+        header.classList.toggle('scrolled', !entry.isIntersecting);
+      }, { threshold: 0.1 });
+      logoObs.observe(heroLogo);
+    }
 
     // ─── Menú fullscreen ──────────────────────────────────────────
     const menuBtn     = document.getElementById('menuBtn');
@@ -743,52 +675,55 @@ desde una visión <span class="sobre-accent">360°</span>
       });
     });
 
-    // ─── Presentar proyecto: dropdown ────────────────────────────
-    const formDropdown        = document.getElementById('formDropdown');
-    const formDropdownTrigger = document.getElementById('formDropdownTrigger');
-    const formDropdownMenu    = document.getElementById('formDropdownMenu');
-    const formDropdownValue   = document.getElementById('formDropdownValue');
-    const formPresBody        = document.getElementById('formPresBody');
+    // ─── Dropdown custom de categoría ────────────────────────────
+    const catSelect  = document.getElementById('categorySelect');
+    const catTrigger = document.getElementById('categoryTrigger');
+    const catValue   = document.getElementById('categoryValue');
+    const catInput   = document.getElementById('categoriaInput');
 
-    // Abrir/cerrar el dropdown
-    formDropdownTrigger?.addEventListener('click', (e) => {
+    catTrigger?.addEventListener('click', e => {
       e.stopPropagation();
-      formDropdown.classList.toggle('open');
-      formDropdownTrigger.setAttribute('aria-expanded', formDropdown.classList.contains('open'));
+      const isOpen = catSelect.classList.toggle('open');
+      catTrigger.setAttribute('aria-expanded', isOpen);
     });
 
-    // Cerrar al hacer click fuera
-    document.addEventListener('click', (e) => {
-      if (formDropdown && !formDropdown.contains(e.target)) {
-        formDropdown.classList.remove('open');
-        formDropdownTrigger?.setAttribute('aria-expanded', 'false');
+    document.addEventListener('click', e => {
+      if (!catSelect?.contains(e.target)) {
+        catSelect?.classList.remove('open');
+        catTrigger?.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // Seleccionar opción
-    document.querySelectorAll('.form-dropdown-item').forEach(item => {
-      item.addEventListener('click', () => {
-        formDropdownValue.textContent = item.textContent;
-        formDropdownTrigger.classList.add('has-value');
-        formDropdown.classList.remove('open');
-        formDropdownTrigger.setAttribute('aria-expanded', 'false');
-        formDropdownMenu.setAttribute('aria-hidden', 'true');
-        // Mostrar el formulario
-        formPresBody.classList.add('active');
-        formPresBody.setAttribute('aria-hidden', 'false');
+    catSelect?.querySelectorAll('.form-select-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        catValue.textContent = opt.textContent;
+        catTrigger.classList.add('has-value');
+        catInput.value = opt.dataset.value;
+        catSelect.querySelectorAll('.form-select-option').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        catSelect.classList.remove('open');
+        catTrigger.setAttribute('aria-expanded', 'false');
       });
     });
 
-    // ─── Expansión de campos extra ────────────────────────────────
-    const formExpandBtn = document.getElementById('formExpandBtn');
-    const formPresExtra = document.getElementById('formPresExtra');
-    let extraOpen = false;
+    // ─── Upload zone ──────────────────────────────────────────────
+    const uploadZone  = document.getElementById('uploadZone');
+    const fileInput   = document.getElementById('fileInput');
+    const uploadFiles = document.getElementById('uploadFiles');
 
-    formExpandBtn?.addEventListener('click', () => {
-      extraOpen = !extraOpen;
-      formPresExtra.classList.toggle('expanded', extraOpen);
-      formExpandBtn.textContent = extraOpen ? '− Menos información' : '+ Más información';
+    function showFiles(files) {
+      if (uploadFiles && files.length)
+        uploadFiles.textContent = files.map(f => f.name).join(', ');
+    }
+
+    uploadZone?.addEventListener('dragover',  e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+    uploadZone?.addEventListener('dragleave', ()  => uploadZone.classList.remove('drag-over'));
+    uploadZone?.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadZone.classList.remove('drag-over');
+      showFiles(Array.from(e.dataTransfer.files));
     });
+    fileInput?.addEventListener('change', () => showFiles(Array.from(fileInput.files)));
 
     // ─── Video reveal on scroll ────────────────────────────────────
     const artVideos = document.querySelectorAll('.babidibu-tv video');
