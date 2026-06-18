@@ -75,17 +75,37 @@ ul { list-style: none; }
 /* ── Scroll reveal ──────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
 }
-.reveal-delay-1.visible { transition-delay: 0.08s; }
-.reveal-delay-2.visible { transition-delay: 0.16s; }
-.reveal-delay-3.visible { transition-delay: 0.24s; }
-.reveal-delay-4.visible { transition-delay: 0.32s; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+.reveal-delay-1.visible  { transition-delay: 0.1s; }
+.reveal-delay-2.visible  { transition-delay: 0.2s; }
+.reveal-delay-3.visible  { transition-delay: 0.3s; }
+.reveal-delay-4.visible  { transition-delay: 0.4s; }
+.reveal-delay-5.visible  { transition-delay: 0.5s; }
 
 /* ════════════════════════════════════════════════════════════
    HEADER — flotante, logo izq + nav der
@@ -153,7 +173,7 @@ ul { list-style: none; }
 
 .menu-btn-char {
   font-family: 'Inter', sans-serif;
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 300;
   line-height: 1;
   display: block;
@@ -388,26 +408,69 @@ body.menu-open .menu-overlay::before {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding-bottom: 0;
 }
 
-/* ── Logo — protagonista, casi ancho completo ────────────── */
+/* ── Hero center: social · logo · info ───────────────────── */
 .hero-center {
   flex-shrink: 0;
-  height: 38vh;
+  height: 42vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 70px 24px 10px;
-  animation: heroLogoIn 0.8s var(--ease-out) 0.1s both;
+  justify-content: center;
+  padding-top: 64px;
+  position: relative;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.hero-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
 .hero-logo {
-  max-height: 100%;
-  width: auto;
-  max-width: min(88vw, 880px);
+  width: min(62vw, 760px);
+  height: auto;
   object-fit: contain;
   animation: heroLogoFloat 6s ease-in-out 0.9s infinite;
 }
+
+.hero-sub {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.28);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Columnas laterales */
+.hero-side {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-side--left  { left: 5vw; align-items: flex-start; }
+.hero-side--right { right: 5vw; align-items: flex-end; }
+
+.hero-side a,
+.hero-side span {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.hero-side a:hover { color: var(--negro); }
 
 @keyframes heroLogoIn {
   from { opacity: 0; transform: translateY(8px) scale(0.95); }
@@ -424,14 +487,54 @@ body.menu-open .menu-overlay::before {
 .hw-coral    { color: #FA5457; }
 .hw-amarillo { color: #c8a800; } /* amarillo Babidibu — oscurecido para legibilidad sobre blanco */
 
-/* ── Carrusel — 62% del viewport ────────────────────────── */
+/* ── Videos — todo el espacio restante ───────────────────── */
 .hero-lower {
-  flex-shrink: 0;
-  height: 62vh;
+  flex: 1;
+  min-height: 0;
   width: 100%;
   overflow: hidden;
-  padding-bottom: 20px;
-  animation: heroUp 0.9s var(--ease-out) 0.2s both;
+  padding: 0 16px 20px;
+}
+
+/* ── Ticker entre hero y nosotros ────────────────────────── */
+.hero-ticker-strip {
+  width: 90vw;
+  max-width: calc(100% - 10vw);
+  margin: 16px 5vw 0;
+  overflow: hidden;
+  padding: 18px 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+.hero-ticker-strip-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-ticker 20s linear infinite;
+}
+
+.hero-ticker-strip-unit {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-right: 40px;
+  flex-shrink: 0;
+}
+
+.hero-ticker-strip-unit img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.75;
+}
+
+.hero-ticker-strip-unit span {
+  font-size: 7px;
+  color: #111;
+  opacity: 0.2;
+  flex-shrink: 0;
 }
 
 .hero-carousel {
@@ -707,7 +810,7 @@ body.menu-open .menu-overlay::before {
   background: #F5F5F3;
   height: auto;
   min-height: unset;
-  padding: 40px 0 52px;
+  padding: 40px 0 48px;
   text-align: center;
 }
 
@@ -716,24 +819,22 @@ body.menu-open .menu-overlay::before {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 0; /* spacing controlado por margin individual */
+  gap: 0;
   max-width: 960px;
   margin: 0 auto;
 }
 
-/* 04 → logo: gap reducido 20% (8px → 6px) */
 .tv-content .label-number {
   color: rgba(0, 0, 0, 0.22);
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 
 .tv-logo {
-  /* +150%: 300px × 1.5 = 450px */
-  max-height: 450px;
-  width: auto;
-  max-width: min(1100px, 92vw);
+  width: min(38vw, 360px);
+  height: auto;
   display: block;
-  margin-bottom: 7px; /* logo → texto: gap reducido 15% (8px → 7px) */
+  /* recortar espacio en blanco interno de la imagen */
+  margin: -60px auto -50px;
 }
 
 .tv-desc {
@@ -742,9 +843,9 @@ body.menu-open .menu-overlay::before {
   font-weight: 300;
   line-height: 1.78;
   color: rgba(0, 0, 0, 0.5);
-  max-width: 520px;
+  max-width: 480px;
   text-align: center;
-  margin: 0;
+  margin: 0 0 20px;
 }
 
 /* ── Botón Babidibu — pill amarillo ─────────────────────────── */
@@ -1727,6 +1828,15 @@ body.menu-open .menu-overlay::before {
   width: 180px;
   height: auto;
   margin: 0 auto;
+}
+
+.footer-claim {
+  font-size: clamp(18px, 2.4vw, 36px);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--negro);
+  margin-top: 20px;
 }
 
 /* ── Grid ────────────────────────────────────────────────── */
