@@ -12,13 +12,8 @@
 </head>
 <body>
 
-  <!-- HEADER — logo centrado (aparece al scroll) + botón "+" -->
+  <!-- HEADER — solo botón "+" -->
   <header class="header" id="header">
-    <img
-      class="header-logo-small"
-      src="imagenes-babidibu-records/logo nuevo babidibu .png"
-      alt="Babidibu Records"
-    >
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
       <span class="menu-btn-char">+</span>
     </button>
@@ -47,7 +42,7 @@
           <a href="#tv" class="menu-link" style="color:#c8a800">Babidibu TV</a>
         </li>
         <li class="menu-item">
-          <span class="menu-num">( _06 )</span>
+          <span class="menu-num">( _05 )</span>
           <a href="#contacto" class="menu-link" style="color:#5FA55A">Presentar proyecto</a>
         </li>
       </ul>
@@ -66,16 +61,27 @@
 
   <main>
 
-    <!-- 01 HERO — logo centrado + carrusel -->
+    <!-- 01 HERO — barra superior + carrusel -->
     <section class="hero" id="inicio">
 
-      <!-- Logo centrado -->
-      <div class="hero-center">
-        <img
-          class="hero-logo"
-          src="imagenes-babidibu-records/logo nuevo babidibu .png"
-          alt="Babidibu Records"
-        >
+      <!-- Navbar: solo logo izq -->
+      <div class="hero-top">
+        <div class="hero-brand">
+          <img
+            class="hero-logo"
+            src="imagenes-babidibu-records/logo nuevo babidibu .png"
+            alt="Babidibu Records"
+          >
+        </div>
+      </div>
+
+      <!-- Título + subtítulo centrados -->
+      <div class="hero-headline">
+        <h1 class="hero-title">
+          Creamos <span class="hw-verde">música</span>, <span class="hw-turquesa">artistas</span> y<br>
+          <span class="hw-coral">universos</span> para las <span class="hw-amarillo">infancias</span>.
+        </h1>
+        <p class="hero-sub">( Sello discográfico )</p>
       </div>
 
       <!-- Carrusel grande -->
@@ -567,15 +573,11 @@ desde una visión <span class="sobre-accent">360°</span>
   </footer>
 
   <script>
-    // ─── Header: logo aparece cuando el hero-logo-big sale del viewport ──
+    // ─── Header scroll ────────────────────────────────────────────
     const header = document.getElementById('header');
-    const heroLogo = document.querySelector('.hero-logo');
-    if (heroLogo) {
-      const logoObs = new IntersectionObserver(([entry]) => {
-        header.classList.toggle('scrolled', !entry.isIntersecting);
-      }, { threshold: 0.1 });
-      logoObs.observe(heroLogo);
-    }
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
 
     // ─── Menú fullscreen ──────────────────────────────────────────
     const menuBtn     = document.getElementById('menuBtn');
