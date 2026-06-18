@@ -12,8 +12,13 @@
 </head>
 <body>
 
-  <!-- HEADER — solo botón "+" -->
+  <!-- HEADER — logo centrado (aparece al scroll) + botón "+" -->
   <header class="header" id="header">
+    <img
+      class="header-logo-small"
+      src="imagenes-babidibu-records/logo nuevo babidibu .png"
+      alt="Babidibu Records"
+    >
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
       <span class="menu-btn-char">+</span>
     </button>
@@ -64,24 +69,13 @@
     <!-- 01 HERO — barra superior + carrusel -->
     <section class="hero" id="inicio">
 
-      <!-- Navbar: solo logo izq -->
-      <div class="hero-top">
-        <div class="hero-brand">
-          <img
-            class="hero-logo"
-            src="imagenes-babidibu-records/logo nuevo babidibu .png"
-            alt="Babidibu Records"
-          >
-        </div>
-      </div>
-
-      <!-- Título + subtítulo centrados -->
-      <div class="hero-headline">
-        <h1 class="hero-title">
-          Creamos <span class="hw-verde">música</span>, <span class="hw-turquesa">artistas</span> y<br>
-          <span class="hw-coral">universos</span> para las <span class="hw-amarillo">infancias</span>.
-        </h1>
-        <p class="hero-sub">( Sello discográfico )</p>
+      <!-- Logo centrado -->
+      <div class="hero-center">
+        <img
+          class="hero-logo"
+          src="imagenes-babidibu-records/logo nuevo babidibu .png"
+          alt="Babidibu Records"
+        >
       </div>
 
       <!-- Carrusel grande -->
@@ -573,11 +567,15 @@ desde una visión <span class="sobre-accent">360°</span>
   </footer>
 
   <script>
-    // ─── Header scroll ────────────────────────────────────────────
+    // ─── Header: logo aparece cuando el hero-logo sale del viewport ──
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 80);
-    }, { passive: true });
+    const heroLogo = document.querySelector('.hero-logo');
+    if (heroLogo) {
+      const logoObs = new IntersectionObserver(([entry]) => {
+        header.classList.toggle('scrolled', !entry.isIntersecting);
+      }, { threshold: 0.1 });
+      logoObs.observe(heroLogo);
+    }
 
     // ─── Menú fullscreen ──────────────────────────────────────────
     const menuBtn     = document.getElementById('menuBtn');
