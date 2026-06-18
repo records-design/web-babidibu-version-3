@@ -397,21 +397,21 @@ body.menu-open .menu-overlay::before {
   overflow: hidden;
 }
 
-/* ── Logo — zona superior del hero ──────────────────────── */
+/* ── Logo — protagonista, casi ancho completo ────────────── */
 .hero-center {
   flex-shrink: 0;
-  height: 34vh;
+  height: 38vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 40px 12px;
+  padding: 70px 24px 10px;
   animation: heroLogoIn 0.8s var(--ease-out) 0.1s both;
 }
 
 .hero-logo {
   max-height: 100%;
   width: auto;
-  max-width: 70vw;
+  max-width: min(88vw, 880px);
   object-fit: contain;
   animation: heroLogoFloat 6s ease-in-out 0.9s infinite;
 }
@@ -431,10 +431,10 @@ body.menu-open .menu-overlay::before {
 .hw-coral    { color: #FA5457; }
 .hw-amarillo { color: #c8a800; } /* amarillo Babidibu — oscurecido para legibilidad sobre blanco */
 
-/* ── Carrusel — ocupa el 66% del hero ───────────────────── */
+/* ── Carrusel — 62% del viewport ────────────────────────── */
 .hero-lower {
   flex-shrink: 0;
-  height: 66vh;
+  height: 62vh;
   width: 100%;
   overflow: hidden;
   padding-bottom: 20px;
