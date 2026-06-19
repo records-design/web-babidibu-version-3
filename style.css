@@ -137,7 +137,7 @@ ul { list-style: none; }
 
 /* Logo — aparece al hacer scroll */
 .header-logo-small {
-  height: 64px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   opacity: 0;
@@ -261,7 +261,7 @@ body.menu-open .menu-overlay {
 /* Número de sección — pequeño, sutil */
 .menu-num {
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.06em;
   color: rgba(0, 0, 0, 0.3);
@@ -430,7 +430,7 @@ body.menu-open .menu-overlay::before {
 }
 
 .hero-logo {
-  width: min(34vw, 400px);
+  width: min(42vw, 500px);
   height: auto;
   object-fit: contain;
   animation: heroLogoReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both,
@@ -788,7 +788,7 @@ body.menu-open .menu-overlay::before {
 .stack-card-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 86vh;
+  height: clamp(500px, 86vh, 860px);
   will-change: transform, opacity;
 }
 
@@ -918,7 +918,7 @@ body.menu-open .menu-overlay::before {
 }
 
 .tv-strip-logo { justify-self: start; }
-.tv-strip-desc { justify-self: center; text-align: center; white-space: nowrap; }
+.tv-strip-desc { justify-self: center; text-align: center; white-space: normal; }
 .babidibu-tv-strip .tv-cta { justify-self: end; }
 
 .tv-strip-logo {
@@ -2546,7 +2546,7 @@ body.menu-open .menu-overlay::before {
   .release-card { bottom: 16px; left: 16px; right: 16px; width: auto; }
 
   /* ── Footer ── */
-  .footer { padding: 0 20px 28px; }
+  .footer { padding: 0 20px 48px; }
   .footer-brand { padding: 40px 0 28px; margin-bottom: 28px; }
   .footer-logo { width: 120px; }
   .footer-claim { font-size: clamp(16px, 5vw, 22px); }
