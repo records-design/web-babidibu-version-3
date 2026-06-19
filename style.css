@@ -432,18 +432,24 @@ body.menu-open .menu-overlay::before {
   width: min(34vw, 400px);
   height: auto;
   object-fit: contain;
-  animation: heroLogoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both,
-             heroLogoFloat 6s ease-in-out 1.2s infinite;
+  animation: heroLogoReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both,
+             heroLogoFloat 4s ease-in-out 1.4s infinite;
+  transform-origin: center bottom;
 }
 
 @keyframes heroLogoReveal {
-  from { opacity: 0; transform: scale(0.9) translateY(10px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+  0%   { opacity: 0; transform: scale(0.72) translateY(24px) rotate(-3deg); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0); }
+  80%  { transform: scale(1.04) translateY(-4px) rotate(0.5deg); }
+  100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); filter: blur(0); }
 }
 
 @keyframes heroLogoFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-3px); }
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-5px) rotate(0.8deg); }
+  50%  { transform: translateY(-8px) rotate(0deg); }
+  75%  { transform: translateY(-4px) rotate(-0.6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
 }
 
 @keyframes heroSubReveal {
@@ -2034,9 +2040,10 @@ body.menu-open .menu-overlay::before {
   bottom: 28px;
   left: 28px;
   z-index: 200;
-  background: #111;
+  background: #fff;
   border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.07);
   width: 280px;
   opacity: 0;
   transform: translateY(16px);
@@ -2062,7 +2069,7 @@ body.menu-open .menu-overlay::before {
   right: 10px;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.4);
+  color: rgba(0,0,0,0.28);
   font-size: 18px;
   line-height: 1;
   cursor: pointer;
@@ -2071,7 +2078,7 @@ body.menu-open .menu-overlay::before {
   z-index: 2;
 }
 
-.release-card-close:hover { color: #fff; }
+.release-card-close:hover { color: #111; }
 
 .release-card-inner {
   display: flex;
@@ -2109,7 +2116,7 @@ body.menu-open .menu-overlay::before {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 500;
-  color: #fff;
+  color: #111;
   line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
@@ -2121,11 +2128,10 @@ body.menu-open .menu-overlay::before {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 300;
-  color: rgba(255,255,255,0.48);
+  color: rgba(0,0,0,0.45);
 }
 
-.release-card-spotify {
-  color: #1DB954;
+.release-card-play {
   flex-shrink: 0;
 }
 
@@ -2451,9 +2457,12 @@ body.menu-open .menu-overlay::before {
 
 @media (max-width: 600px) {
   .header { height: 56px; }
-  .menu-btn { right: 16px; }
+  .menu-btn { right: 16px; height: 48px; }
+  .menu-btn-char { font-size: 40px; font-weight: 400; }
   .header-logo-small { height: 30px; }
   .menu-link { font-size: clamp(26px, 9vw, 44px); }
+  .menu-item { padding: 10px 0; }
+  .hero-cta-btn { display: none; }
 
   /* Hero mobile */
   .hero { height: auto; min-height: 100svh; overflow-y: auto; }
@@ -2507,6 +2516,97 @@ body.menu-open .menu-overlay::before {
   .footer-claim { font-size: clamp(18px, 5.5vw, 28px); }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ─── Hero CTA button ────────────────────────────────────────────────── */
+.hero-strip-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #111;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 100px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  opacity: 0;
+  animation: heroSubReveal 0.5s ease 1.0s forwards;
+}
+
+.hero-cta-btn:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+/* ─── Spotify embed en artist cards ─────────────────────────────────── */
+.stack-card-spotify-embed {
+  width: 100%;
+  max-width: 420px;
+  background: #F2F2F0;
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stack-card-spotify-embed::before {
+  content: 'Escuchá en Spotify';
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.28);
+  padding: 0 2px;
+}
+
+.stack-card-spotify-embed iframe {
+  display: block;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* ─── Artist flagship badge ──────────────────────────────────────────── */
+.stack-card-flagship {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(95, 165, 90, 0.08);
+  border: 1px solid rgba(95, 165, 90, 0.25);
+  padding: 5px 12px;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+/* ─── Accordion SVG icons ────────────────────────────────────────────── */
+.acc-svg-icon {
+  flex-shrink: 0;
+  color: rgba(0, 0, 0, 0.22);
+  transition: color 0.28s ease;
+}
+
+.acc-item.open .acc-svg-icon,
+.acc-item:not(.open) .acc-trigger:hover .acc-svg-icon {
+  color: var(--acc-color);
 }
 
 /* ─── Form validation states ─────────────────────────────────────────── */
