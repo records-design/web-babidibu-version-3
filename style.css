@@ -127,17 +127,17 @@ ul { list-style: none; }
 }
 
 .header.scrolled {
-  background: rgba(250, 250, 248, 0.75);
+  background: rgba(250, 250, 248, 0.55);
   border-bottom-color: rgba(0,0,0,0.07);
-  backdrop-filter: blur(24px) saturate(1.6);
-  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(40px) saturate(2) brightness(1.08);
+  -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.08);
 }
 
 .header:not(.scrolled) .menu-btn { color: #111; }
 
 /* Logo — aparece al hacer scroll */
 .header-logo-small {
-  height: 48px;
+  height: 64px;
   width: auto;
   object-fit: contain;
   opacity: 0;
@@ -145,6 +145,8 @@ ul { list-style: none; }
   transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
   pointer-events: none;
 }
+
+.header a { text-decoration: none; }
 
 .header.scrolled .header-logo-small {
   opacity: 1;
@@ -210,9 +212,9 @@ body.menu-open {
   inset: 0;
   z-index: 95;
 
-  background: rgba(250, 250, 248, 0.55);
-  backdrop-filter: blur(28px) brightness(0.92);
-  -webkit-backdrop-filter: blur(28px) brightness(0.92);
+  background: rgba(250, 250, 248, 0.35);
+  backdrop-filter: blur(14px) brightness(1.0);
+  -webkit-backdrop-filter: blur(14px) brightness(1.0);
 
   /* Layout — flex-start para que el contenido fluya desde
      la parte superior con el padding correcto, sin centrar
@@ -250,10 +252,10 @@ body.menu-open .menu-overlay {
 /* Cada ítem: número + link en fila */
 .menu-item {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: baseline;
+  gap: 24px;
   overflow: hidden;
-  padding: 4px 0;
+  padding: 2px 0 8px;
 }
 
 /* Número de sección — pequeño, sutil */
@@ -269,17 +271,16 @@ body.menu-open .menu-overlay {
   transition: transform 0.55s var(--ease-out), opacity 0.55s var(--ease-out);
 }
 
-/* Link principal — enorme, Inter Medium */
+/* Link principal — tipografía grande estilo editorial */
 .menu-link {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(22px, 3.2vw, 45px);
-  font-weight: 300;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  color: #111;
+  font-size: clamp(40px, 7vw, 96px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: #333;
   text-decoration: none;
   display: block;
-  /* Animación de entrada desde abajo */
   transform: translateY(110%);
   opacity: 0;
   transition: transform 0.55s var(--ease-out),
@@ -425,7 +426,7 @@ body.menu-open .menu-overlay::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 5vw 2px;
+  padding: 14px 5vw 0px;
 }
 
 .hero-logo {
@@ -464,7 +465,7 @@ body.menu-open .menu-overlay::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 5vw 20px;
+  padding: 8px 5vw 10px;
   border-top: 1px solid rgba(0,0,0,0.07);
   opacity: 0;
   animation: heroSubReveal 0.5s ease 0.8s forwards;
