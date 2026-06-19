@@ -159,15 +159,29 @@ ul { list-style: none; }
   right: 32px;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
+  width: auto;
   height: 60px;
   display: flex;
   align-items: center;
+  gap: 8px;
   justify-content: center;
   color: #111;
   transition: opacity 0.2s ease;
   flex-shrink: 0;
+  padding: 0 4px;
 }
+
+.menu-btn-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+body.menu-open .menu-btn-label { opacity: 0; }
 
 .menu-btn:hover { opacity: 0.4; }
 
@@ -1344,6 +1358,16 @@ body.menu-open .menu-overlay::before {
   color: rgba(0, 0, 0, 0.28);
 }
 
+.form-field-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.38);
+  line-height: 1.5;
+  margin-top: 6px;
+  display: block;
+}
+
 .form-field input:focus,
 .form-field textarea:focus {
   border-color: rgba(0, 0, 0, 0.4);
@@ -1536,11 +1560,13 @@ body.menu-open .menu-overlay::before {
 .wizard-panel-label {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.32);
-  margin-bottom: 4px;
+  color: rgba(0, 0, 0, 0.35);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
 }
 
 /* ── Nav botones ─────────────────────────────────────────── */
@@ -2404,4 +2430,22 @@ body.menu-open .menu-overlay::before {
   .footer-claim { font-size: clamp(18px, 5.5vw, 28px); }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ─── Form validation states ─────────────────────────────────────────── */
+.form-field input.field-error,
+.form-field textarea.field-error {
+  border-color: #FA5457;
+  background: #fff5f5;
+}
+.form-select-trigger.field-error {
+  border-color: #FA5457 !important;
+  background: #fff5f5;
+}
+.field-error-msg {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #FA5457;
+  margin-top: 5px;
 }

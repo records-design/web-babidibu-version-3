@@ -33,6 +33,7 @@
       alt="Babidibu Records"
     >
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span class="menu-btn-label">Menú</span>
       <span class="menu-btn-char">+</span>
     </button>
   </header>
@@ -56,7 +57,7 @@
         </li>
         
         <li class="menu-item">
-          <span class="menu-num">( _05 )</span>
+          <span class="menu-num">( _04 )</span>
           <a href="#tv" class="menu-link" style="color:#c8a800">Babidibu TV</a>
         </li>
         <li class="menu-item">
@@ -215,9 +216,9 @@ desde una visión <span class="sobre-accent">360°</span>
               <h3 class="stack-card-name">Benito<br>y Tomasa</h3>
               <p class="stack-card-desc">Proyecto de música infantil con ADN rockero que combina canciones originales, personajes entrañables y una propuesta visual y educativa diseñada para inspirar creatividad, diversión y aprendizaje en toda la familia.</p>
               <div class="stack-card-social">
-                <a href="#" data-platform="youtube">YouTube</a>
-                <a href="#" data-platform="instagram">Instagram</a>
-                <a href="#" data-platform="spotify">Spotify</a>
+                <a href="https://www.youtube.com/@benitoytomasa" target="_blank" rel="noopener" data-platform="youtube">YouTube</a>
+                <a href="https://www.instagram.com/benitoytomasa/?hl=es-la" target="_blank" rel="noopener" data-platform="instagram">Instagram</a>
+                <a href="https://open.spotify.com/intl-es/" target="_blank" rel="noopener" data-platform="spotify">Spotify</a>
               </div>
             </div>
           </div>
@@ -420,7 +421,7 @@ desde una visión <span class="sobre-accent">360°</span>
     <!-- CONTENIDO DESTACADO -->
     <section class="contenido" id="contenido">
       <div class="contenido-header reveal">
-        <span class="label-number">( Artistas )</span>
+        <span class="label-number">( El Mundo de Chani )</span>
         <h2 class="contenido-title">Contenido destacado.</h2>
       </div>
       <div class="contenido-grid">
@@ -501,9 +502,9 @@ desde una visión <span class="sobre-accent">360°</span>
           <!-- Paso 1: Datos de contacto -->
           <div class="wizard-panel active" data-panel="1">
             <p class="wizard-panel-label">01 — Datos de contacto</p>
-            <div class="form-field"><label>Nombre</label><input type="text" name="nombre" autocomplete="name"></div>
-            <div class="form-field"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
-            <div class="form-field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="+54 9..."></div>
+            <div class="form-field"><label>Nombre</label><input type="text" name="nombre" autocomplete="name" placeholder="Ej: María González"></div>
+            <div class="form-field"><label>Email</label><input type="email" name="email" autocomplete="email" placeholder="Ej: hola@tuproyecto.com"></div>
+            <div class="form-field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="Ej: +54 9 11 1234-5678"></div>
             <div class="wizard-nav">
               <span></span>
               <button type="button" class="btn-wizard-next" data-next="2">Siguiente →</button>
@@ -534,7 +535,8 @@ desde una visión <span class="sobre-accent">360°</span>
             </div>
             <div class="form-field">
               <label>Descripción</label>
-              <textarea name="descripcion" rows="4" placeholder="Contanos sobre tu proyecto..."></textarea>
+              <textarea name="descripcion" id="descTextarea" rows="4"></textarea>
+              <span class="form-field-hint">Contanos brevemente quién sos, qué hacés y qué buscás lograr.</span>
             </div>
             <div class="wizard-nav">
               <button type="button" class="btn-wizard-back" data-back="1">← Volver</button>
@@ -554,11 +556,12 @@ desde una visión <span class="sobre-accent">360°</span>
               <span class="form-upload-formats">MP3 · WAV · MP4 · PDF · ZIP</span>
               <span class="form-upload-files" id="uploadFiles"></span>
             </label>
-            <div class="form-field"><label>Spotify</label><input type="url" name="spotify" placeholder="https://..."></div>
-            <div class="form-field"><label>YouTube</label><input type="url" name="youtube" placeholder="https://..."></div>
-            <div class="form-field"><label>Apple Music</label><input type="url" name="apple" placeholder="https://..."></div>
-            <div class="form-field"><label>Instagram</label><input type="url" name="instagram-url" placeholder="https://..."></div>
-            <div class="form-field"><label>TikTok</label><input type="url" name="tiktok" placeholder="https://..."></div>
+            <div class="form-field"><label>Spotify</label><input type="url" name="spotify" placeholder="Ej: https://open.spotify.com/artist/..."></div>
+            <div class="form-field"><label>YouTube</label><input type="url" name="youtube" placeholder="Ej: https://youtube.com/@tucanal"></div>
+            <div class="form-field"><label>Apple Music</label><input type="url" name="apple" placeholder="Ej: https://music.apple.com/..."></div>
+            <div class="form-field"><label>Instagram</label><input type="url" name="instagram-url" placeholder="Ej: https://instagram.com/@tuusuario"></div>
+            <div class="form-field"><label>TikTok</label><input type="url" name="tiktok" placeholder="Ej: https://tiktok.com/@tuusuario"></div>
+            <span class="form-field-hint">Podés dejar en blanco los que no uses.</span>
             <div class="wizard-nav">
               <button type="button" class="btn-wizard-back" data-back="2">← Volver</button>
               <button type="submit" class="btn-submit">Enviar proyecto →</button>
@@ -727,6 +730,11 @@ desde una visión <span class="sobre-accent">360°</span>
       if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
     });
 
+    // Cerrar al clickear fuera del nav (en el overlay)
+    menuOverlay.addEventListener('click', e => {
+      if (!e.target.closest('.menu-nav') && !e.target.closest('.menu-bottom')) closeMenu();
+    });
+
     // ─── Scroll reveal ────────────────────────────────────────────
     // Auto-animar stack-cards con reveal-scale + stagger
     document.querySelectorAll('.stack-card').forEach((el, i) => {
@@ -883,8 +891,49 @@ desde una visión <span class="sobre-accent">360°</span>
       });
     }
 
+    function validateStep(step) {
+      if (step === 1) {
+        const nombre = wizard.querySelector('input[name="nombre"]');
+        const email  = wizard.querySelector('input[name="email"]');
+        let ok = true;
+        [nombre, email].forEach(f => {
+          f.classList.remove('field-error');
+          let msg = f.closest('.form-field').querySelector('.field-error-msg');
+          if (msg) msg.remove();
+        });
+        if (!nombre.value.trim()) {
+          nombre.classList.add('field-error');
+          nombre.insertAdjacentHTML('afterend', '<span class="field-error-msg">Por favor ingresá tu nombre.</span>');
+          ok = false;
+        }
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRe.test(email.value.trim())) {
+          email.classList.add('field-error');
+          email.insertAdjacentHTML('afterend', '<span class="field-error-msg">Ingresá un email válido.</span>');
+          ok = false;
+        }
+        return ok;
+      }
+      if (step === 2) {
+        const catInput = document.getElementById('categoriaInput');
+        const trigger  = document.getElementById('categoryTrigger');
+        trigger.classList.remove('field-error');
+        let msg = trigger.parentElement.querySelector('.field-error-msg');
+        if (msg) msg.remove();
+        if (!catInput.value) {
+          trigger.classList.add('field-error');
+          trigger.insertAdjacentHTML('afterend', '<span class="field-error-msg">Seleccioná una categoría.</span>');
+          return false;
+        }
+        return true;
+      }
+      return true;
+    }
+
     wizard?.querySelectorAll('.btn-wizard-next').forEach(btn => {
       btn.addEventListener('click', () => {
+        const current = parseInt(btn.closest('.wizard-panel').dataset.panel);
+        if (!validateStep(current)) return;
         const target = parseInt(btn.dataset.next);
         goToStep(target);
       });
@@ -943,11 +992,14 @@ desde una visión <span class="sobre-accent">360°</span>
     // ─── Tarjeta último lanzamiento ───────────────────────────────
     const releaseCard  = document.getElementById('releaseCard');
     const releaseClose = document.getElementById('releaseCardClose');
-    setTimeout(() => releaseCard?.classList.add('visible'), 2000);
+    if (releaseCard && !localStorage.getItem('releaseCardClosed')) {
+      setTimeout(() => releaseCard.classList.add('visible'), 2000);
+    }
     releaseClose?.addEventListener('click', e => {
       e.preventDefault();
       releaseCard.classList.add('hidden');
       releaseCard.classList.remove('visible');
+      localStorage.setItem('releaseCardClosed', '1');
     });
 
     // ─── Video reveal on scroll ────────────────────────────────────
