@@ -464,7 +464,7 @@ body.menu-open .menu-overlay::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 5vw 8px;
+  padding: 6px 5vw 20px;
   border-top: 1px solid rgba(0,0,0,0.07);
   opacity: 0;
   animation: heroSubReveal 0.5s ease 0.8s forwards;
@@ -901,24 +901,30 @@ body.menu-open .menu-overlay::before {
   border-top: 1px solid rgba(0,0,0,0.07);
   border-bottom: 1px solid rgba(0,0,0,0.07);
   padding: 28px 5vw;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
+.tv-strip-logo { justify-self: start; }
+.tv-strip-desc { justify-self: center; text-align: center; white-space: nowrap; }
+.babidibu-tv-strip .tv-cta { justify-self: end; }
+
 .tv-strip-logo {
-  width: min(18vw, 160px);
+  width: min(26vw, 240px);
   height: auto;
   flex-shrink: 0;
 }
 
 .tv-strip-desc {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 300;
-  line-height: 1.65;
-  color: rgba(0,0,0,0.5);
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgba(0,0,0,0.6);
   flex: 1;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -977,7 +983,8 @@ body.menu-open .menu-overlay::before {
   border-radius: 100px;
   font-family: var(--ff-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  white-space: nowrap;
   letter-spacing: 0.02em;
   text-decoration: none;
   margin-top: 8px;
@@ -988,7 +995,7 @@ body.menu-open .menu-overlay::before {
 }
 
 .tv-cta:hover {
-  background: linear-gradient(90deg, #F6D51F 0%, #FA5457 40%, #01B4BC 70%, #5FA55A 100%);
+  background: #FA5457;
   color: #fff;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
@@ -1102,7 +1109,7 @@ body.menu-open .menu-overlay::before {
 
 .acc-icon {
   font-family: 'Inter', sans-serif;
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 300;
   line-height: 1;
   color: rgba(0, 0, 0, 0.28);
@@ -1236,7 +1243,7 @@ body.menu-open .menu-overlay::before {
 /* ── Frase final ─────────────────────────────────────────── */
 .sobre-claim {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(18px, 1.8vw, 24px);
+  font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 400;
   line-height: 1.52;
   letter-spacing: -0.01em;
@@ -2456,66 +2463,85 @@ body.menu-open .menu-overlay::before {
 }
 
 @media (max-width: 600px) {
-  .header { height: 56px; }
-  .menu-btn { right: 16px; height: 48px; }
+  /* ── Header ── */
+  .header { height: 56px; padding: 0 20px; }
+  .menu-btn { height: 48px; }
   .menu-btn-char { font-size: 40px; font-weight: 400; }
-  .header-logo-small { height: 30px; }
-  .menu-link { font-size: clamp(26px, 9vw, 44px); }
+  .header-logo-small { height: 28px; }
+  .menu-link { font-size: clamp(24px, 8vw, 38px); }
   .menu-item { padding: 10px 0; }
-  .hero-cta-btn { display: none; }
+  .menu-overlay { padding: 100px 7vw 48px; }
 
-  /* Hero mobile */
+  /* ── Hero — videos apilados verticalmente ── */
   .hero { height: auto; min-height: 100svh; overflow-y: auto; }
-  .hero-sub { display: block; }
-  .hero-social-strip { padding: 0 16px 12px; gap: 16px; }
-
-  /* Videos apilados verticalmente en mobile */
+  .hero-center { padding: 10px 5vw 0; }
+  .hero-logo { width: min(52vw, 260px); }
+  .hero-social-strip { padding: 4px 20px 14px; }
+  .hero-sub { font-size: 10px; }
+  .hero-social-links { gap: 16px; }
   .hero-lower { flex: none; height: auto; padding: 0 16px 32px; overflow: visible; }
   .hero-carousel { height: auto; overflow: visible; }
-  .hero-carousel-track {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    width: 100%;
-    animation: none;
-  }
-  .hero-cpiece {
-    height: auto;
-    aspect-ratio: 9/16;
-    width: 100%;
-    margin-right: 0;
-    border-radius: 10px;
-  }
-  /* Ocultar los duplicados (segunda mitad del track, para el loop) */
+  .hero-carousel-track { display: grid; grid-template-columns: 1fr; gap: 10px; width: 100%; animation: none; }
+  .hero-cpiece { height: auto; aspect-ratio: 9/16; width: 100%; margin-right: 0; border-radius: 12px; }
   .hero-cpiece:nth-child(n+6) { display: none; }
 
-  .sobre { padding: 72px 24px; }
-  .sobre-title { font-size: clamp(26px, 8vw, 44px); margin-bottom: 32px; }
-  .sobre-claim { font-size: clamp(22px, 6.5vw, 36px); }
+  /* ── Nosotros ── */
+  .sobre { padding: 56px 20px 52px; }
+  .sobre-label { margin-bottom: 28px; }
+  .sobre-title { font-size: clamp(22px, 7vw, 34px); margin-bottom: 24px; }
+  .sobre-title br { display: none; }
+  .sobre-sub { font-size: 14px; margin-bottom: 28px; }
+  .sobre-claim { font-size: clamp(13px, 3.5vw, 15px); }
 
-  .artistas-v2-header { padding: 64px 20px 36px; }
-  .artistas-v2-heading { font-size: clamp(36px, 11vw, 56px); }
+  /* ── Artistas ── */
+  .artistas-v2-header { padding: 48px 20px 28px; }
+  .artistas-v2-heading { font-size: clamp(28px, 8vw, 38px); }
   .artistas-stack { padding: 0 12px; }
-  .stack-card-image { height: 72vw; }
-  .stack-card-info { padding: 28px 24px 40px; }
-  .stack-card-name { font-size: clamp(28px, 8vw, 42px); }
+  /* Sin sticky en mobile — las cards fluyen normalmente */
+  .artistas-stack .stack-card { position: static !important; }
+  .stack-card-image { height: 60vw; max-height: 280px; }
+  .stack-card-info { padding: 24px 20px 32px; gap: 16px; }
+  .stack-card-name { font-size: clamp(24px, 7vw, 34px); }
+  .stack-card-desc { font-size: 14px; line-height: 1.62; }
+  .stack-card-spotify-embed { max-width: 100%; }
 
-  .babidibu-tv { padding: 56px 20px; }
-  .tv-logo { width: min(68vw, 260px); }
+  /* ── Servicios ── */
+  .servicios-v2 { padding: 64px 0 56px; }
+  .servicios-v2-header { padding: 0 20px 28px; }
+  .servicios-v2-title { font-size: clamp(22px, 7vw, 32px); }
+  .acc-trigger { padding: 18px 20px; gap: 14px; }
+  .acc-name { font-size: clamp(15px, 4vw, 19px); }
+  .acc-content { padding: 0 20px 24px; }
+  .acc-svg-icon { width: 18px; height: 18px; }
 
-  .servicios-v2-title { font-size: clamp(32px, 9vw, 48px); }
-  .acc-trigger { padding: 20px; }
-  .acc-name { font-size: clamp(16px, 4.5vw, 22px); }
+  /* ── Babidibu TV strip ── */
+  .babidibu-tv-strip { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px 20px; }
+  .babidibu-tv-strip .tv-cta { justify-self: unset; }
+  .tv-strip-logo { width: min(40vw, 160px); }
+  .tv-strip-desc { text-align: left; font-size: 13px; }
 
-  .formulario { padding: 64px 20px 80px; }
-  .form-heading { font-size: clamp(24px, 7vw, 38px); }
+  /* ── Contenido destacado ── */
+  .contenido { padding: 56px 20px 64px; }
+  .contenido-title { font-size: clamp(20px, 6vw, 28px); }
+  .contenido-grid { grid-template-columns: 1fr; gap: 20px; max-width: 100%; }
+
+  /* ── Formulario ── */
+  .formulario { padding: 56px 20px 72px; }
+  .form-heading { font-size: clamp(22px, 7vw, 32px); }
+  .form-intro { font-size: 14px; }
   .form-field input, .form-field textarea { font-size: 16px; }
+  .btn-wizard-next { font-size: 13px; padding: 12px 22px; }
 
-  .footer { padding: 0 20px 32px; }
-  .footer-logo { width: 130px; }
-  .footer-claim { font-size: clamp(18px, 5.5vw, 28px); }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  /* ── Release card ── */
+  .release-card { bottom: 16px; left: 16px; right: 16px; width: auto; }
+
+  /* ── Footer ── */
+  .footer { padding: 0 20px 28px; }
+  .footer-brand { padding: 40px 0 28px; margin-bottom: 28px; }
+  .footer-logo { width: 120px; }
+  .footer-claim { font-size: clamp(16px, 5vw, 22px); }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
 
 /* ─── Hero CTA button ────────────────────────────────────────────────── */
