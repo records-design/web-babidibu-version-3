@@ -1034,14 +1034,13 @@ desde una visión <span class="sobre-accent">360°</span>
     // ─── Tarjeta último lanzamiento ───────────────────────────────
     const releaseCard  = document.getElementById('releaseCard');
     const releaseClose = document.getElementById('releaseCardClose');
-    if (releaseCard && !localStorage.getItem('releaseCardClosed')) {
+    if (releaseCard) {
       setTimeout(() => releaseCard.classList.add('visible'), 2000);
     }
     releaseClose?.addEventListener('click', e => {
       e.preventDefault();
       releaseCard.classList.add('hidden');
       releaseCard.classList.remove('visible');
-      localStorage.setItem('releaseCardClosed', '1');
     });
 
     // ─── Video reveal on scroll ────────────────────────────────────
