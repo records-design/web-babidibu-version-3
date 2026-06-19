@@ -639,6 +639,15 @@ body.menu-open .menu-overlay::before {
   border: 1.5px solid #fff;
   background: rgba(255,255,255,0.15);
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.story-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .story-handle {
