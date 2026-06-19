@@ -116,26 +116,28 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   z-index: 100;
-  height: 64px;
-  padding: 0 44px;
+  height: 72px;
+  padding: 0 32px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(250, 250, 248, 0.55);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  transition: background 0.4s var(--ease-out);
+  justify-content: space-between;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), backdrop-filter 0.4s var(--ease-out);
 }
 
 .header.scrolled {
-  background: rgba(250, 250, 248, 0.82);
-  border-bottom-color: rgba(0, 0, 0, 0.07);
+  background: rgba(250, 250, 248, 0.75);
+  border-bottom-color: rgba(0,0,0,0.07);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
 }
 
-/* Logo pequeño — centrado, aparece al hacer scroll */
+.header:not(.scrolled) .menu-btn { color: #111; }
+
+/* Logo — aparece al hacer scroll */
 .header-logo-small {
-  height: 38px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   opacity: 0;
@@ -155,18 +157,12 @@ ul { list-style: none; }
   background: none;
   border: none;
   cursor: pointer;
-  position: absolute;
-  right: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: auto;
   height: 60px;
   display: flex;
   align-items: center;
-  gap: 8px;
   justify-content: center;
   color: #111;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.4s ease;
   flex-shrink: 0;
   padding: 0 4px;
 }
@@ -419,56 +415,35 @@ body.menu-open .menu-overlay::before {
 .hero {
   height: 100vh;
   background: #fff;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
   overflow: hidden;
 }
 
-/* ── Hero center: social · logo · info ───────────────────── */
 .hero-center {
-  flex-shrink: 0;
-  height: 30vh;
+  grid-row: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 5vw 12px;
-  position: relative;
-  z-index: 2;
-  overflow: visible;
-}
-
-.hero-brand-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  overflow: visible;
+  padding: 14px 5vw 2px;
 }
 
 .hero-logo {
-  width: min(38vw, 420px);
+  width: min(34vw, 400px);
   height: auto;
   object-fit: contain;
-  opacity: 0;
-  animation: heroLogoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards,
+  animation: heroLogoReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both,
              heroLogoFloat 6s ease-in-out 1.2s infinite;
 }
 
 @keyframes heroLogoReveal {
-  from { opacity: 0; transform: scale(0.88) translateY(12px); }
+  from { opacity: 0; transform: scale(0.9) translateY(10px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.hero-sub {
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.55);
-  text-align: center;
-  margin-top: 6px;
-  opacity: 0;
-  animation: heroSubReveal 0.6s ease 0.7s forwards;
+@keyframes heroLogoFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
 }
 
 @keyframes heroSubReveal {
@@ -476,15 +451,17 @@ body.menu-open .menu-overlay::before {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Subtítulo + redes entre logo y videos */
+/* Barra entre logo y videos */
 .hero-social-strip {
+  grid-row: 2;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5vw 10px;
+  padding: 6px 5vw 8px;
+  border-top: 1px solid rgba(0,0,0,0.07);
   opacity: 0;
-  animation: heroSubReveal 0.5s ease 0.7s forwards;
+  animation: heroSubReveal 0.5s ease 0.8s forwards;
 }
 
 .hero-social-links {
@@ -502,7 +479,17 @@ body.menu-open .menu-overlay::before {
   transition: color 0.2s;
 }
 
-.hero-social-strip a:hover { color: var(--negro); }
+.hero-social-strip a:hover { color: #111; }
+
+.hero-sub {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  opacity: 0;
+  animation: heroSubReveal 0.5s ease 0.8s forwards;
+}
 
 @keyframes heroLogoIn {
   from { opacity: 0; transform: translateY(8px) scale(0.95); }
@@ -519,15 +506,13 @@ body.menu-open .menu-overlay::before {
 .hw-coral    { color: #FA5457; }
 .hw-amarillo { color: #c8a800; } /* amarillo Babidibu — oscurecido para legibilidad sobre blanco */
 
-/* ── Videos — todo el espacio restante ───────────────────── */
+/* ── Videos — ocupa todo el espacio restante ────────────── */
 .hero-lower {
-  flex: 1;
+  grid-row: 3;
   min-height: 0;
   width: 100%;
   overflow: hidden;
-  padding: 0 16px 20px;
-  position: relative;
-  z-index: 1;
+  padding: 0 16px 12px;
 }
 
 /* ── Ticker entre hero y nosotros ────────────────────────── */
@@ -582,7 +567,7 @@ body.menu-open .menu-overlay::before {
   align-items: stretch;
   height: 100%;
   width: max-content;
-  animation: marquee 18s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 
 @keyframes marquee {
@@ -2472,8 +2457,6 @@ body.menu-open .menu-overlay::before {
 
   /* Hero mobile */
   .hero { height: auto; min-height: 100svh; overflow-y: auto; }
-  .hero-center { height: auto; padding: 60px 5vw 12px; }
-  .hero-logo { width: min(60vw, 260px); }
   .hero-sub { display: block; }
   .hero-social-strip { padding: 0 16px 12px; gap: 16px; }
 
