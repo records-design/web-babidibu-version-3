@@ -2051,12 +2051,13 @@ body.menu-open .menu-overlay::before {
   bottom: 20px;
   left: 20px;
   z-index: 200;
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  cursor: grab;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(40px) saturate(2) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.1);
   border-radius: 14px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.05);
-  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 1px 0px rgba(255,255,255,0.8) inset;
+  border: 1px solid rgba(255,255,255,0.35);
   width: 238px;
   opacity: 0;
   transform: translateY(16px);
@@ -2364,6 +2365,43 @@ body.menu-open .menu-overlay::before {
   margin-top: 20px;
 }
 
+/* ── Footer claim ticker ─────────────────────────────────── */
+.footer-claim-ticker-wrap {
+  overflow: hidden;
+  margin-top: 28px;
+  padding: 12px 0;
+}
+
+.footer-claim-ticker-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: footerTicker 6s linear infinite;
+  will-change: transform;
+}
+
+.fct-phrase {
+  font-size: clamp(22px, 3.2vw, 52px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  padding-right: 4vw;
+  flex-shrink: 0;
+}
+
+.fct-sep {
+  font-size: clamp(14px, 1.8vw, 28px);
+  color: #5FA55A;
+  padding-right: 4vw;
+  flex-shrink: 0;
+}
+
+@keyframes footerTicker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
 /* ── Grid ────────────────────────────────────────────────── */
 .footer-grid {
   display: grid;
@@ -2588,6 +2626,7 @@ body.menu-open .menu-overlay::before {
   .footer-brand { padding: 40px 0 28px; margin-bottom: 28px; }
   .footer-logo { width: 120px; }
   .footer-claim { font-size: clamp(16px, 5vw, 22px); }
+  .fct-phrase { font-size: clamp(18px, 5.5vw, 32px); }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }

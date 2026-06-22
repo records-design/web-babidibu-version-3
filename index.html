@@ -698,21 +698,18 @@ desde una visión <span class="sobre-accent">360°</span>
   <!-- 07 FOOTER -->
   <footer class="footer">
 
-    <!-- Notas musicales decorativas — muy sutiles -->
-    <div class="footer-notes" aria-hidden="true">
-      <span style="--nx:4%;  --ny:18%; --ns:26px; --nc:#5FA55A; --no:0.11;">♫</span>
-      <span style="--nx:14%; --ny:65%; --ns:16px; --nc:#01B4BC; --no:0.09;">♩</span>
-      <span style="--nx:84%; --ny:12%; --ns:20px; --nc:#FA5457; --no:0.10;">♬</span>
-      <span style="--nx:93%; --ny:58%; --ns:15px; --nc:#FA8925; --no:0.09;">♪</span>
-      <span style="--nx:50%; --ny:88%; --ns:18px; --nc:#c8a800; --no:0.09;">♫</span>
-      <span style="--nx:28%; --ny:40%; --ns:12px; --nc:#FA5457; --no:0.07;">♩</span>
-      <span style="--nx:72%; --ny:75%; --ns:14px; --nc:#5FA55A; --no:0.08;">♪</span>
-    </div>
 
     <!-- Logo -->
     <div class="footer-brand">
       <a href="#inicio" aria-label="Ir al inicio"><img class="footer-logo" src="imagenes-babidibu-records/logo nuevo babidibu .png" alt="Babidibu Records"></a>
-      <p class="footer-claim">Creamos <span style="color:#5FA55A">música</span>, <span style="color:#01B4BC">artistas</span> y <span style="color:#FA5457">universos</span><br>para las <span style="color:#c8a800">infancias</span>.</p>
+      <div class="footer-claim-ticker-wrap" aria-label="Creamos música, artistas y universos para las infancias.">
+        <div class="footer-claim-ticker-track" aria-hidden="true">
+          <span class="fct-phrase">Creamos <span style="color:#5FA55A">música</span>, <span style="color:#01B4BC">artistas</span> y <span style="color:#FA5457">universos</span> para las <span style="color:#c8a800">infancias</span></span>
+          <span class="fct-sep" aria-hidden="true">✦</span>
+          <span class="fct-phrase">Creamos <span style="color:#5FA55A">música</span>, <span style="color:#01B4BC">artistas</span> y <span style="color:#FA5457">universos</span> para las <span style="color:#c8a800">infancias</span></span>
+          <span class="fct-sep" aria-hidden="true">✦</span>
+        </div>
+      </div>
     </div>
 
     <!-- Grid de columnas -->
@@ -1054,6 +1051,60 @@ desde una visión <span class="sobre-accent">360°</span>
     const releaseClose = document.getElementById('releaseCardClose');
     if (releaseCard) {
       setTimeout(() => releaseCard.classList.add('visible'), 2000);
+
+      // drag to move
+      let dragging = false, startX, startY, origLeft, origBottom;
+      releaseCard.addEventListener('mousedown', e => {
+        if (e.target === releaseClose) return;
+        dragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        const rect = releaseCard.getBoundingClientRect();
+        origLeft = rect.left;
+        origBottom = window.innerHeight - rect.bottom;
+        releaseCard.style.transition = 'none';
+        releaseCard.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        let newLeft = origLeft + dx;
+        let newBottom = origBottom - dy;
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - releaseCard.offsetWidth));
+        newBottom = Math.max(0, Math.min(newBottom, window.innerHeight - releaseCard.offsetHeight));
+        releaseCard.style.left = newLeft + 'px';
+        releaseCard.style.bottom = newBottom + 'px';
+      });
+      document.addEventListener('mouseup', () => {
+        if (!dragging) return;
+        dragging = false;
+        releaseCard.style.cursor = 'grab';
+      });
+
+      // touch support
+      releaseCard.addEventListener('touchstart', e => {
+        if (e.target === releaseClose) return;
+        const t = e.touches[0];
+        startX = t.clientX; startY = t.clientY;
+        const rect = releaseCard.getBoundingClientRect();
+        origLeft = rect.left;
+        origBottom = window.innerHeight - rect.bottom;
+        releaseCard.style.transition = 'none';
+      }, { passive: true });
+      releaseCard.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+        let newLeft = origLeft + dx;
+        let newBottom = origBottom - dy;
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - releaseCard.offsetWidth));
+        newBottom = Math.max(0, Math.min(newBottom, window.innerHeight - releaseCard.offsetHeight));
+        releaseCard.style.left = newLeft + 'px';
+        releaseCard.style.bottom = newBottom + 'px';
+        e.preventDefault();
+      }, { passive: false });
     }
     releaseClose?.addEventListener('click', e => {
       e.preventDefault();
@@ -1070,6 +1121,7 @@ desde una visión <span class="sobre-accent">360°</span>
       });
     }, { threshold: 0.3 });
     artVideos.forEach(v => videoObs.observe(v));
+
   </script>
 </body>
 </html>
