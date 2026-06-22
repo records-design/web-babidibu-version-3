@@ -912,14 +912,14 @@ body.menu-open .menu-overlay::before {
   border-bottom: 1px solid rgba(0,0,0,0.07);
   padding: 28px 5vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 40px;
 }
 
 .tv-strip-logo { justify-self: start; }
-.tv-strip-desc { justify-self: center; text-align: center; white-space: normal; }
-.babidibu-tv-strip .tv-cta { justify-self: end; }
+.tv-strip-desc { justify-self: start; text-align: left; white-space: normal; }
+.babidibu-tv-strip .tv-cta { justify-self: end; white-space: nowrap; }
 
 .tv-strip-logo {
   width: min(26vw, 240px);
@@ -2371,13 +2371,14 @@ body.menu-open .menu-overlay::before {
 /* ── Grid ────────────────────────────────────────────────── */
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
   margin-bottom: 48px;
 }
 
 /* ── Headings ────────────────────────────────────────────── */
-.footer-col h4 {
+.footer-col h4,
+.footer-col-title {
   font-family: var(--ff-body);
   font-size: 11px;
   font-weight: 400;
@@ -2409,6 +2410,45 @@ body.menu-open .menu-overlay::before {
 .footer-col--artistas a:hover  { color: #5FA55A; }
 .footer-col--servicios li:hover { color: #01B4BC; }
 .footer-col--contacto  a:hover  { color: #FA5457; }
+
+/* ── Columna contacto rediseñada ─────────────────────────── */
+
+.footer-contact-block {
+  margin-bottom: 22px;
+}
+
+.footer-contact-block--social {
+  margin-top: 4px;
+}
+
+.footer-contact-label {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+
+.footer-contact-value {
+  font-family: var(--ff-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: #3A3F44;
+  text-decoration: none;
+  line-height: 1.55;
+  display: block;
+  transition: color 0.22s ease;
+}
+
+.footer-contact-value:hover { color: #FA5457; }
+
+.footer-social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  list-style: none;
+}
 
 /* ── Bottom ──────────────────────────────────────────────── */
 .footer-bottom {
