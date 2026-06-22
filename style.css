@@ -2601,9 +2601,9 @@ body.menu-open .menu-overlay::before {
   .acc-svg-icon { width: 18px; height: 18px; }
 
   /* ── Babidibu TV strip ── */
-  .babidibu-tv-strip { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px 20px; }
+  .babidibu-tv-strip { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 20px; text-align: center; }
   .tv-strip-logo { justify-self: unset; width: min(44vw, 180px); }
-  .tv-strip-desc { text-align: left; white-space: normal; font-size: 14px; }
+  .tv-strip-desc { text-align: center; white-space: normal; font-size: 14px; }
   .babidibu-tv-strip .tv-cta { justify-self: unset; align-self: unset; }
 
   /* ── Contenido destacado ── */
