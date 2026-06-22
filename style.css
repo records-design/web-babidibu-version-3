@@ -414,7 +414,7 @@ body.menu-open .menu-overlay::before {
    01 HERO — logo · carrusel · texto · ticker (Bungee overlay)
    ════════════════════════════════════════════════════════════ */
 .hero {
-  height: 100vh;
+  height: 100svh;
   background: #fff;
   display: grid;
   grid-template-rows: auto auto 1fr;
@@ -426,35 +426,36 @@ body.menu-open .menu-overlay::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 5vw 0px;
+  padding: 0px 5vw 0px;
 }
 
 .hero-logo {
-  width: min(42vw, 500px);
+  width: min(38vw, 460px);
   height: auto;
   object-fit: contain;
-  animation: heroLogoReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both,
-             heroLogoFloat 4s ease-in-out 1.4s infinite;
-  transform-origin: center bottom;
+  animation: heroLogoReveal 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both,
+             heroLogoFloat 5s ease-in-out 1.3s infinite;
+  transform-origin: center center;
 }
 
 @keyframes heroLogoReveal {
-  0%   { opacity: 0; transform: scale(0.72) translateY(24px) rotate(-3deg); filter: blur(6px); }
-  60%  { opacity: 1; filter: blur(0); }
-  80%  { transform: scale(1.04) translateY(-4px) rotate(0.5deg); }
-  100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); filter: blur(0); }
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes heroLogoFloat {
-  0%   { transform: translateY(0) rotate(0deg); }
-  25%  { transform: translateY(-5px) rotate(0.8deg); }
-  50%  { transform: translateY(-8px) rotate(0deg); }
-  75%  { transform: translateY(-4px) rotate(-0.6deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes heroSubReveal {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroLowerReveal {
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -465,19 +466,19 @@ body.menu-open .menu-overlay::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 5vw 10px;
+  padding: 10px 5vw 16px;
   border-top: 1px solid rgba(0,0,0,0.07);
   opacity: 0;
-  animation: heroSubReveal 0.5s ease 0.8s forwards;
+  animation: heroSubReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
 .hero-social-links {
   display: flex;
-  gap: 24px;
+  gap: 20px;
 }
 
 .hero-social-strip a {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -486,27 +487,18 @@ body.menu-open .menu-overlay::before {
   transition: color 0.2s;
 }
 
-.hero-social-strip a:hover { color: #111; }
+.hero-social-strip a:hover { color: #3A3F44; }
 
 .hero-sub {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(0,0,0,0.4);
   opacity: 0;
-  animation: heroSubReveal 0.5s ease 0.8s forwards;
+  animation: heroSubReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
-@keyframes heroLogoIn {
-  from { opacity: 0; transform: translateY(8px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes heroLogoFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-2.5px); }
-}
 
 .hw-verde    { color: #5FA55A; }
 .hw-turquesa { color: #01B4BC; }
@@ -519,7 +511,9 @@ body.menu-open .menu-overlay::before {
   min-height: 0;
   width: 100%;
   overflow: hidden;
-  padding: 0 16px 12px;
+  padding: 0 0 0;
+  opacity: 0;
+  animation: heroLowerReveal 1.0s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
 }
 
 /* ── Ticker entre hero y nosotros ────────────────────────── */
@@ -574,7 +568,7 @@ body.menu-open .menu-overlay::before {
   align-items: stretch;
   height: 100%;
   width: max-content;
-  animation: marquee 22s linear infinite;
+  animation: marquee 14s linear infinite;
 }
 
 @keyframes marquee {
@@ -586,7 +580,7 @@ body.menu-open .menu-overlay::before {
   flex-shrink: 0;
   height: 100%;
   aspect-ratio: 9 / 16;
-  margin-right: 10px;
+  margin-right: 6px;
   border-radius: 14px;
   overflow: hidden;
   background: #E8E8E6;
@@ -656,9 +650,6 @@ body.menu-open .menu-overlay::before {
   color: #fff;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 80px;
 }
 
 .story-verified {
@@ -2054,14 +2045,16 @@ body.menu-open .menu-overlay::before {
    ════════════════════════════════════════════════════════════ */
 .release-card {
   position: fixed;
-  bottom: 28px;
-  left: 28px;
+  bottom: 20px;
+  left: 20px;
   z-index: 200;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.07);
-  width: 280px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.6);
+  width: 238px;
   opacity: 0;
   transform: translateY(16px);
   pointer-events: none;
@@ -2100,15 +2093,15 @@ body.menu-open .menu-overlay::before {
 .release-card-inner {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 36px 14px 14px;
+  gap: 10px;
+  padding: 12px 30px 12px 12px;
   text-decoration: none;
 }
 
 .release-card-cover {
-  width: 52px;
-  height: 52px;
-  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -2131,7 +2124,7 @@ body.menu-open .menu-overlay::before {
 
 .release-card-title {
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   color: #111;
   line-height: 1.3;
@@ -2143,7 +2136,7 @@ body.menu-open .menu-overlay::before {
 
 .release-card-artist {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 300;
   color: rgba(0,0,0,0.45);
 }
