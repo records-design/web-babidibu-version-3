@@ -1122,6 +1122,13 @@ desde una visión <span class="sobre-accent">360°</span>
     }, { threshold: 0.3 });
     artVideos.forEach(v => videoObs.observe(v));
 
+    // ─── iOS autoplay fix — fuerza play al primer toque ───────────
+    const heroVideos = document.querySelectorAll('.hero-cpiece video');
+    document.addEventListener('touchstart', function playAll() {
+      heroVideos.forEach(v => { v.muted = true; v.play().catch(() => {}); });
+      document.removeEventListener('touchstart', playAll);
+    }, { once: true, passive: true });
+
   </script>
 </body>
 </html>
