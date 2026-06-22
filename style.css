@@ -2518,9 +2518,9 @@ body.menu-open .menu-overlay::before {
 
   /* ── Hero — videos apilados verticalmente ── */
   .hero { height: auto; min-height: 100svh; overflow-y: auto; }
-  .hero-center { padding: 10px 5vw 0; }
-  .hero-logo { width: min(52vw, 260px); }
-  .hero-social-strip { padding: 4px 20px 14px; }
+  .hero-center { padding: 56px 5vw 0; margin-bottom: 8px; }
+  .hero-logo { width: min(58vw, 280px); }
+  .hero-social-strip { padding: 8px 20px 12px; }
   .hero-sub { font-size: 10px; }
   .hero-social-links { gap: 16px; }
   .hero-lower { flex: none; height: auto; padding: 0 16px 32px; overflow: visible; }
