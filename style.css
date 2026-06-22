@@ -2376,7 +2376,7 @@ body.menu-open .menu-overlay::before {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  animation: footerTicker 6s linear infinite;
+  animation: footerTicker 8s linear infinite;
   will-change: transform;
 }
 
@@ -2398,7 +2398,7 @@ body.menu-open .menu-overlay::before {
 
 @keyframes footerTicker {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-25%); }
 }
 
 
